@@ -19,11 +19,19 @@ abstract class Model{
         return $data ? new static($data) : null;
     }
 
-    public static function findAll(mysqli $connection){
-         $sql = sprintf("SELECT * from %s",
-            static::$table
-        );
-        $query = $connection->prepare($sql);
+    public static function findAll(mysqli $connection, string $column = "", $value = null){
+         if($column && $value !== null){
+            //if I want to get all entries of a user
+            $sql = sprintf("SELECT * FROM %s WHERE %s = ?", static::$table, $column);
+            $query = $connection->prepare($sql);
+            $type = is_int($value) ? "i" : "s";
+            $query->bind_param($type, $value);
+        }
+        else{
+            //if I am getting all the users
+            $sql = sprintf("SELECT * FROM %s", static::$table);
+            $query = $connection->prepare($sql);
+        }
         $query->execute();
         $data = $query->get_result();
         $rows=[];
