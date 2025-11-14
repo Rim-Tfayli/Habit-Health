@@ -3,6 +3,8 @@
     require_once("../services/ResponseService.php");
     require_once("../services/EntryService.php");
     require_once("../services/AiResponseService.php");
+    include_once("prompts.php");
+
 
     //will be sent from axios..
     $data = json_decode(file_get_contents("php://input"), true);
@@ -21,7 +23,7 @@
     ]);
     $apiKey = "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 ";
 
-    $prompt = "will see \"$userInput\"";
+    $prompt = "$prompt1 \"$userInput\"";
     
     $msg = [
         'model' => 'gpt-3.5-turbo',

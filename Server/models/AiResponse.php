@@ -8,7 +8,7 @@ class AiResponse extends Model{
     protected ?int $id = null;
     protected int $entry_id;
     protected int $steps;
-    protected int $minutes;
+    protected int $water;
     protected int $caffeine;
     protected string $sleep_time;
     protected ?string $created_at = null;
@@ -17,7 +17,7 @@ class AiResponse extends Model{
     public function __construct(array $data = []){
         $this->entry_id = (int)$data["entry_id"];
         $this->steps = $data["steps"];
-        $this->minutes = (int)$data["minutes"];
+        $this->water = (int)$data["water"];
         $this->caffeine = $data["caffeine"];
         $this->sleep_time = (int)$data["sleep_time"];
         $this->calories = $data["calories"];
@@ -28,7 +28,7 @@ class AiResponse extends Model{
             "id" => $this->id,
             "entry_id" => $this->entry_id,
             "steps" => $this->steps,
-            "minutes" => $this->minutes,
+            "water" => $this->water,
             "caffeine" => $this->caffeine,
             "sleep_time" => $this->sleep_time,
             "calories" => $this->calories

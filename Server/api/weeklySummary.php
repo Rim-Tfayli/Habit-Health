@@ -16,23 +16,13 @@
         echo ResponseService::response(400, "email is missing");
         exit;
     }
-    //getting today's entries to get summary
-    //and comparing them with habits to get feedbacks
+    //getting weekly summary
+    //and acting like nutrition coach to give health advice
 
-    $start = date("Y-m-d 00:00:00");
-    $end = date("Y-m-d 23:59:59");
-    $entries = Entry::findByDate($connection, $start, $end);
-    $habits = HabitService::findHabitsByUser($connection, $data['email']);
-
-    $habits_entries = [
-        "habits" => $habits,
-        "entries" => $entries
-    ];
-    $habitsEntriesJson = json_encode($habits_entries, JSON_PRETTY_PRINT);
-
+    
     $apiKey = "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 ";
 
-    $prompt = " $prompt2  \n\"$habitsEntriesJson\"";
+    $prompt = " $prompt3  \n\"$habitsEntriesJson\"";
 
     //echo  $prompt;    
 
@@ -68,14 +58,6 @@
         return;
     }
 
-    //to ensure that all required keys are present
-    $requiredKeys = ["summart", "gaps", "feedback"];
-    foreach($requiredKeys as $key){
-        if(!isset($resultData[$key])){
-            echo ResponseService::response(500, "Reuired keys are missing");
-            exit;
-        }
-    }
 
 
 ?>
