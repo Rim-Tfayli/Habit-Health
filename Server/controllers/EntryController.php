@@ -36,8 +36,10 @@ class EntryController {
             ]);
             echo ResponseService::response(200, $result["action"]);
         }
-        echo ResponseService::response(400, "Data is missing");
-        return;
+        else{
+            echo ResponseService::response(400, "Data is missing");
+            return;
+        }
     }
     public function deleteEntry(){
         global $connection;

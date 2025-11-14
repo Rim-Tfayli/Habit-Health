@@ -11,6 +11,10 @@ $apis = [
     '/entry/insert'  => ['controller' => 'EntryController', 'method' => 'saveEntry'],
     '/entry/delete'  => ['controller' => 'EntryController', 'method' => 'deleteEntry'],
 
+    '/habits'       => ['controller' => 'HabitController', 'method' => 'getHabitByUser'],
+    '/habit/insert'  => ['controller' => 'HabitController', 'method' => 'saveHabit'],
+    '/habit/delete'  => ['controller' => 'HabitController', 'method' => 'deleteHabit'],
+
     '/aiResponse'        => ['controller' => 'AiResponseController', 'method' => 'getAiResponse'],
     '/aiResponse/insert' => ['controller' => 'AiResponseController', 'method' => 'saveAiResponse']
 ];

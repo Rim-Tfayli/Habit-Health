@@ -7,7 +7,7 @@ class Habit extends Model {
     protected string $goal;
     protected int $user_id;
 
-    protected static string $table = "entries";
+    protected static string $table = "habits";
     protected static $primaryKey = "id";
 
     public function __construct(array $data){

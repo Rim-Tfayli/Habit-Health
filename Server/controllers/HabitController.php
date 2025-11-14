@@ -1,10 +1,10 @@
 <?php
-require_once(__DIR__ . "/../models/Entry.php");
+require_once(__DIR__ . "/../models/Habit.php");
 require_once(__DIR__ . "/../connection/connection.php");
 require_once(__DIR__ . "/../services/ResponseService.php");
-require_once(__DIR__ . "/../services/EntryService.php");
+require_once(__DIR__ . "/../services/HabitService.php");
 
-class EntryController {
+class HabitController {
 
     function getHabitByUser(){
         global $connection;
@@ -31,26 +31,28 @@ class EntryController {
             $user = UserService::findUserByEmail($connection, $data["email"]);
             $result = HabitService::save($connection, [
                 "user_id" => $user["id"],
-                "habit_name" => $data["name"],
+                "name" => $data["name"],
                 "goal" => $data["goal"]
             ]);
-            echo ResponseService::response(200, $result["action"]); 
+            echo ResponseService::response(200, $result); 
         }
-        echo ResponseService::response(400, "Data is missing");
-        return;
+        else{
+            echo ResponseService::response(400, "Data is missing");
+            return;
+        }
     }
     public function deleteHabit(){
         global $connection;
         if(isset($_GET["id"])){
             $id = $_GET["id"];
-            $deleted = HabitService::deleteEntry($connection, $id);
+            $deleted = HabitService::deleteHabit($connection, $id);
             if($deleted){
-                echo ResponseService::response(200, "Entry deleted");
+                echo ResponseService::response(200, "Habit deleted");
             }else{
-                echo ResponseService::response(500, "Failed to delete entry");
+                echo ResponseService::response(500, "Failed to delete habit");
             }
         }
-        echo ResponseService::response(400, "Entry ID is missing");
+        echo ResponseService::response(400, "Habit ID is missing");
         return;            
     }
 }
