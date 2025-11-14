@@ -2,9 +2,9 @@
 include_once("Model.php");
 
 class Habit extends Model {
-    protected int $id;
+    protected ?int $id = null;
     protected string $name;
-    protected string $category;
+    protected string $goal;
     protected int $user_id;
 
     protected static string $table = "entries";
@@ -13,7 +13,7 @@ class Habit extends Model {
     public function __construct(array $data){
         $this->id = $data["id"];
         $this->name = $data["name"];
-        $this->category = $data["category"];
+        $this->goal = $data["goal"];
         $this->user_id = (int)$data["user_id"];
     }
 
@@ -29,11 +29,11 @@ class Habit extends Model {
         return $this->name;
     }
 
-    public function setCategory(string $category){
-        $this->category = $category;
+    public function setGoal(string $goal){
+        $this->goal = $goal;
     }
 
-    public function getCategory(){
+    public function getGoal(){
         return $this->name;
     }
 
@@ -46,14 +46,14 @@ class Habit extends Model {
     }
 
     public function __toString(){
-        return $this->id . " | " . $this->name . " | " . $this->category . " | " . $this->user_id;
+        return $this->id . " | " . $this->name . " | " . $this->goal . " | " . $this->user_id;
     }
     
     public function toArray(){
         return [
             "id" => $this->id,
             "name" => $this->name,
-            "category" => $this->category,
+            "goal" => $this->goal,
             "user_id" => $this->user_id
         ];
     }
