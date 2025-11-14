@@ -8,9 +8,9 @@ class HabitController {
 
     function getHabitByUser(){
         global $connection;
-
-        if(isset($_GET["email"])){
-            $email = $_GET["email"];
+        $data = json_decode(file_get_contents("php://input"), true);
+        if(isset($data["email"])){
+            $email = $data["email"];
             $user = UserService::findUserByEmail($connection,$email);
             if($user){
                 $userId = $user["id"];
