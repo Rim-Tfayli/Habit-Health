@@ -61,7 +61,8 @@
         "minutes" => $resultData['minutes'],
         "caffeine" => $resultData['caffeine'],
         "sleep_time"=> $resultData['sleep_time'],
-        "calories" => $resultData['calories']
+        "calories" => $resultData['calories'],
+        "created_at" => date('Y-m-d H:i:s')
     ]);
 
     if($aiResponse){

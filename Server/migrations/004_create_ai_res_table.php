@@ -9,6 +9,7 @@ $sql = "CREATE TABLE IF NOT EXISTS ai_response(
         caffeine INT,
         sleep_time TIME,
         calories INT,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (entry_id) REFERENCES entries(id) ON DELETE CASCADE
         )";
 
