@@ -1,12 +1,16 @@
 <?php 
 class HabitService {
-    public static function findHabitsByUser(mysqli $connection, string $column, string $userId) {
-         $habits = Habit::findAll($connection, $column, $userId);
-            $habitsArray = [];
-            foreach ($habits as $habit) {
-                $habitsArray[] = $habit->toArray(); 
-            }
-            return $habitsArray;
+    public static function findHabitsByUser(mysqli $connection, string $email) {
+        $user = UserService::findUserByEmail($connection,$email);
+        if($user){
+            $userId = $user["id"];
+        }
+        $habits = Habit::findAll($connection, "user_id", $userId);
+        $habitsArray = [];
+        foreach ($habits as $habit) {
+            $habitsArray[] = $habit->toArray(); 
+        }
+        return $habitsArray;
     }
     public static function deleteHabit(mysqli $connection, int $id){
             return Habit::delete($connection, $id, "id");

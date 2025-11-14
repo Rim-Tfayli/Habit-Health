@@ -10,13 +10,9 @@ class HabitController {
         global $connection;
         $data = json_decode(file_get_contents("php://input"), true);
         if(isset($data["email"])){
-            $email = $data["email"];
-            $user = UserService::findUserByEmail($connection,$email);
-            if($user){
-                $userId = $user["id"];
-                $habits = HabitService::findHabitsByUser($connection, "user_id", $userId);
-                echo ResponseService::response(400, $habits);
-            }
+            $email = $data["email"];           
+            $entries = HabitService::findHabitsByUser($connection, $email);
+            echo ResponseService::response(400, $entries);
         }
         else{
             echo ResponseService::response(400, "User Email is missing");

@@ -9,3 +9,4 @@
         echo ResponseService::response(400, "email is missing");
         exit;
     }
+    

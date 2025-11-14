@@ -1,8 +1,12 @@
 <?php 
     class EntryService{
 
-        public static function findEntriesByUser(mysqli $connection, string $column, string $userId){
-            $entries = Entry::findAll($connection, $column, $userId);
+        public static function findEntriesByUser(mysqli $connection, string $email){
+            $user = UserService::findUserByEmail($connection,$email);
+            if($user){
+                $userId = $user["id"];
+            }
+            $entries = Entry::findAll($connection, "user_id", $userId);
             $entriesArray = [];
             foreach ($entries as $entry) {
                 $entriesArray[] = $entry->toArray(); 

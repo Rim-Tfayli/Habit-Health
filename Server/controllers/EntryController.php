@@ -10,13 +10,9 @@ class EntryController {
         global $connection;
         $data = json_decode(file_get_contents("php://input"), true);
         if(isset($data["email"])){
-            $email = $data["email"];
-            $user = UserService::findUserByEmail($connection,$email);
-            if($user){
-                $userId = $user["id"];
-                $entries = EntryService::findEntriesByUser($connection, "user_id", $userId);
-                echo ResponseService::response(400, $entries);
-            }
+            $email = $data["email"];           
+            $entries = EntryService::findEntriesByUser($connection, $email);
+            echo ResponseService::response(400, $entries);
         }
         else{
             echo ResponseService::response(400, "User Email is missing");
