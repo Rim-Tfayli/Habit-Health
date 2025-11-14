@@ -1,4 +1,6 @@
 <?php 
+    header('Content-Type: application/json');
+
     require_once("../connection/connection.php");
     require_once("../services/ResponseService.php");
     require_once("../services/EntryService.php");
@@ -19,10 +21,14 @@
     //getting weekly summary
     //and acting like nutrition coach to give health advice
 
+    $startdate = date("Y-m-d 00:00:00", strtotime("-1 week")); 
+    $enddate = date("Y-m-d 23:59:59");
+    $entries = Entry::findByDate($connection, $startdate, $enddate);
+    $entriesJson = json_encode($entries, JSON_PRETTY_PRINT);
     
-    $apiKey = "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 ";
+    $apiKey = "";
 
-    $prompt = " $prompt3  \n\"$habitsEntriesJson\"";
+    $prompt = " $prompt3  \n\"$entriesJson\"";
 
     //echo  $prompt;    
 
@@ -46,7 +52,7 @@
     ]);
     $response = curl_exec($cHttp);
     if(curl_errno($cHttp)){
-        echo ResponseService::response(500, "OpenAI request failed: " . curl_error($ch));
+        echo ResponseService::response(500, "OpenAI request failed: " . curl_error($cHttp));
         exit;
     }
     $responseData = json_decode($response,true);
@@ -57,6 +63,17 @@
         echo json_encode(["status" => "failed", "message" => "Invalid JSON response from OpenAI"]);
         return;
     }
+
+    //to ensure that all required keys are present
+    $requiredKeys = ["summary", "message", "advices"];
+    foreach($requiredKeys as $key){
+        if(!isset($resultData[$key])){
+            echo ResponseService::response(500, "Reuired keys are missing");
+            exit;
+        }
+    }
+    echo ResponseService::response(200, $resultData);
+
 
 
 

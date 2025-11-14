@@ -30,7 +30,7 @@
     ];
     $habitsEntriesJson = json_encode($habits_entries, JSON_PRETTY_PRINT);
 
-    $apiKey = "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 ";
+    $apiKey = "";
 
     $prompt = " $prompt2  \n\"$habitsEntriesJson\"";
 
@@ -56,7 +56,7 @@
     ]);
     $response = curl_exec($cHttp);
     if(curl_errno($cHttp)){
-        echo ResponseService::response(500, "OpenAI request failed: " . curl_error($ch));
+        echo ResponseService::response(500, "OpenAI request failed: " . curl_error($cHttp));
         exit;
     }
     $responseData = json_decode($response,true);
@@ -69,13 +69,14 @@
     }
 
     //to ensure that all required keys are present
-    $requiredKeys = ["summart", "gaps", "feedback"];
+    $requiredKeys = ["summary", "gaps", "feedback"];
     foreach($requiredKeys as $key){
         if(!isset($resultData[$key])){
             echo ResponseService::response(500, "Reuired keys are missing");
             exit;
         }
     }
+    echo ResponseService::response(200, $resultData);
 
 
 ?>

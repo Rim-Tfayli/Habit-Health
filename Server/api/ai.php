@@ -13,17 +13,17 @@
         exit;
     }
     $entry_id = $data["entry_id"];
-    $userId = $data['user_id'];
-    $userInput = $data['user_input'];
+    $user_id = $data['user_id'];
+    $user_input = $data['user_input'];
 
     $newEntry = EntryService::save($connection, [
         "id" => $entry_id,
         "user_id" => $user_id,
-        "entry_text" => $userInput,
+        "entry_text" => $user_input,
     ]);
-    $apiKey = "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 ";
+    $apiKey = "";
 
-    $prompt = "$prompt1 \"$userInput\"";
+    $prompt = "$prompt1 \"$user_input\"";
     
     $msg = [
         'model' => 'gpt-3.5-turbo',
@@ -45,7 +45,7 @@
     ]);
     $response = curl_exec($cHttp);
     if(curl_errno($cHttp)){
-        echo ResponseService::response(500, "OpenAI request failed: " . curl_error($ch));
+        echo ResponseService::response(500, "OpenAI request failed: " . curl_error($cHttp));
         exit;
     }
     $responseData = json_decode($response,true);
@@ -67,9 +67,8 @@
     ]);
 
     if($aiResponse){
-        echo ResponseService::response(200, "Entry and AI Response saved");
+        echo ResponseService::response(200, $aiResponse);
     }
-    
 
 
 
