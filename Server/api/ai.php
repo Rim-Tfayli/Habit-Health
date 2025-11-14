@@ -18,7 +18,6 @@
         "id" => $entry_id,
         "user_id" => $user_id,
         "entry_text" => $userInput,
-        "created_at" => date('Y-m-d H:i:s')
     ]);
     $apiKey = "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 ";
 

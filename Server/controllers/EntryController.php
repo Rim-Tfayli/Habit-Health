@@ -1,23 +1,27 @@
 <?php
-require_once(__DIR__ . "/../models/User.php");
+require_once(__DIR__ . "/../models/Entry.php");
 require_once(__DIR__ . "/../connection/connection.php");
-require_once(__DIR__ . "/../services/ResponseServices.php");
+require_once(__DIR__ . "/../services/ResponseService.php");
 require_once(__DIR__ . "/../services/EntryService.php");
 
-class UserController {
+class EntryController {
 
     function getEntryByUser(){
         global $connection;
 
         if(isset($_GET["email"])){
             $email = $_GET["email"];
-        }else{
+            $user = UserService::findUserByEmail($connection,$email);
+            if($user){
+                $userId = $user["id"];
+                $entries = EntryService::findEntriesByUser($connection, "user_id", $userId);
+                echo ResponseService::response(400, $entries);
+            }
+        }
+        else{
             echo ResponseService::response(400, "User Email is missing");
             return;
-        }
-        $email = $_GET['email'];
-        echo EntryService::findEntryByUserEmail($connection, $email);
-
+        }   
         return;
     }   
     public function saveEntry(){
@@ -25,7 +29,11 @@ class UserController {
         $data = json_decode(file_get_contents("php://input"), true);
 
         if($data){
-            $result = EntryService::save($connection, $data);
+            $user = UserService::findUserByEmail($connection, $data["email"]);
+            $result = EntryService::save($connection, [
+                "user_id" => $user["id"],
+                "entry_text" => $data["userInput"]
+            ]);
             echo ResponseService::response(200, $result["action"]);
         }
         echo ResponseService::response(400, "Data is missing");

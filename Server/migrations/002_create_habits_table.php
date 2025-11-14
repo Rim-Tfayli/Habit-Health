@@ -3,7 +3,7 @@ include ('../connection/connection.php');
 
 $sql = "CREATE TABLE IF NOT EXISTS habits(
           id INT(11) AUTO_INCREMENT PRIMARY KEY,
-          user_id VARCHAR(255) NOT NULL,
+          user_id INT(11) NOT NULL,
           name VARCHAR(255) NOT NULL,
           goal TEXT,
           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

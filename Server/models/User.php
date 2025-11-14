@@ -4,11 +4,12 @@ include("Model.php");
 class User extends Model {
 
     //I may add height and weight (hsab l waet)
-    protected int $id;
+    protected ?int $id = null;
     protected string $username;
     protected string $email;
     protected string $password;
     protected string $gender;
+    protected int $user_type_id;
 
     protected static string $table = "users";
 
@@ -18,6 +19,7 @@ class User extends Model {
         $this->email = $data["email"];
         $this->password = $data["password"];
         $this->gender = $data["gender"];
+        $this->user_type_id = (int)$data["user_type_id"];
     }
 
     public function getID(){

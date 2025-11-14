@@ -12,6 +12,6 @@ $apis = [
     '/entry/delete'  => ['controller' => 'EntryController', 'method' => 'deleteEntry'],
 
     '/aiResponse'        => ['controller' => 'AiResponseController', 'method' => 'getAiResponse'],
-    '/aiResponse/insert' => ['controller' => 'AiResponseController', 'method' => 'saveAiResopnse']
+    '/aiResponse/insert' => ['controller' => 'AiResponseController', 'method' => 'saveAiResponse']
 ];
 ?>

@@ -1,7 +1,9 @@
 <?php 
-require_once __DIR__ . '/services/ResponseServices.php';
+require_once __DIR__ . '/services/ResponseService.php';
 require_once(__DIR__ . "/routes/apis.php");
 require_once( __DIR__ . '/controllers/UserController.php');
+require_once( __DIR__ . '/controllers/AiResponseController.php');
+
 
 $base_dir = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 $request = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

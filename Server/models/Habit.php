@@ -1,5 +1,5 @@
 <?php
-include("Model.php");
+include_once("Model.php");
 
 class Habit extends Model {
     protected int $id;
@@ -14,7 +14,7 @@ class Habit extends Model {
         $this->id = $data["id"];
         $this->name = $data["name"];
         $this->category = $data["category"];
-        $this->user_id = $data["user_id"];
+        $this->user_id = (int)$data["user_id"];
     }
 
     public function getID(){
