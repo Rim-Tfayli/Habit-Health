@@ -111,7 +111,7 @@ abstract class Model{
         $data = $query->get_result();
         $rows = [];
         while($row = $data->fetch_assoc()){
-            $rows[] = new static($row);
+            $rows[] = (new static($row))->toArray();
         }
         return $rows;
     }
