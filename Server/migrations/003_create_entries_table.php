@@ -3,11 +3,10 @@ include ('../connection/connection.php');
 
 $sql = "CREATE TABLE entries(
         id INT AUTO_INCREMENT PRIMARY KEY,
-        user_email VARCHAR(100),
+        user_id VARCHAR(100),
         text TEXT NOT NULL,
-        parsed_json JSON,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (user_email) REFERENCES users(email) ON DELETE CASCADE
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
         )";
 
 $query = $connection->prepare($sql);

@@ -5,18 +5,18 @@
             $user = User::find($connection, $email, "email");
             if($user){
                 $userId = $user->getID();
-                $entries = Entry::findAll($connection, $userId, "user_id");
+                $entries = Entry::findAll($connection, "user_id", $userId);
                 return $entries;
             }
         }
         public static function deleteEtry(mysqli $connection, string $id){
             return Entry::delete($connection, $id, "id");
         }
-        /*public static function save(mysqli $connection, array $data){
+        public static function save(mysqli $connection, array $data){
             $entry = new Entry($data);
-            $newUser = $entry->createNew($connection, $data);
+            $newEntry = $entry->save($connection, "id");
             
-            return $newUser;
-        }*/
+            return $newEntry;
+        }
     }
 ?>

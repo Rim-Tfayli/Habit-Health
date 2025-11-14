@@ -22,6 +22,7 @@ abstract class Model{
     public static function findAll(mysqli $connection, string $column = "", $value = null){
          if($column && $value !== null){
             //if I want to get all entries of a user
+            //column is user_id
             $sql = sprintf("SELECT * FROM %s WHERE %s = ?", static::$table, $column);
             $query = $connection->prepare($sql);
             $type = is_int($value) ? "i" : "s";

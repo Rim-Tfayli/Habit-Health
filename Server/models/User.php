@@ -2,6 +2,8 @@
 include("Model.php");
 
 class User extends Model {
+
+    //I may add height and weight (hsab l waet)
     protected int $id;
     protected string $username;
     protected string $email;
