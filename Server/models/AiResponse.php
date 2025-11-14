@@ -1,5 +1,5 @@
 <?php
-require_once('Model.php');
+include("Model.php");
 
 class AiResponse extends Model{
     protected static string $table = "ai_response";

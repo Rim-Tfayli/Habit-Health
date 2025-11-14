@@ -9,7 +9,7 @@
                 return $entries;
             }
         }
-        public static function deleteEtry(mysqli $connection, string $id){
+        public static function deleteEntry(mysqli $connection, int $id){
             return Entry::delete($connection, $id, "id");
         }
         public static function save(mysqli $connection, array $data){

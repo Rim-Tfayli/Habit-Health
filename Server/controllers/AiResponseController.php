@@ -5,7 +5,7 @@ require_once('../services/ResponseService.php');
 
     class AiResponseController{
     //to display summary for the user
-    function getParsed(){
+    function getAiResponse(){
             global $connection;
             if(isset($_GET['entry_id'])){
                 $entry_id = $_GET['entry_id'];            
