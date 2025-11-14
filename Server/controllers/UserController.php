@@ -56,7 +56,8 @@ class UserController {
         }
     }
     
-    public static function loginUser(mysqli $connection) {
+    public static function loginUser() {
+        global $connection;
         $data = json_decode(file_get_contents("php://input"), true);
 
         if(!isset($data['email']) || !isset($data['password'])){

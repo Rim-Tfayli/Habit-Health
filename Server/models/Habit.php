@@ -7,7 +7,8 @@ class Habit extends Model {
     protected string $category;
     protected int $user_id;
 
-    protected static string $table = "users";
+    protected static string $table = "entries";
+    protected static $primaryKey = "id";
 
     public function __construct(array $data){
         $this->id = $data["id"];

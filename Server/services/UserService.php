@@ -30,7 +30,6 @@
             if(password_verify($password, $user->getPassword())){
                 return $user->toArray();
             }
-            return null;
         }         
     }
 ?>

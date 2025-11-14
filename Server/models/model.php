@@ -59,7 +59,6 @@ abstract class Model{
         }
         $exist = static::find($connection, $this->$primary_key, $primary_key);
         if($exist){
-            echo ResponseService::response(200, "User exist");
             $this->update($connection, $primary_key, $properties);
             return ['action' => 'updated', 'object' => $this];
         }

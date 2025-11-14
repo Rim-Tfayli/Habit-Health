@@ -10,6 +10,7 @@ class Entry extends Model {
     protected int $user_id;
 
     protected static string $table = "entries";
+    protected static $primaryKey = "id";
 
     public function __construct(array $data){
         $this->id = $data["id"];
