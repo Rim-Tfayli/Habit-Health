@@ -30,7 +30,7 @@ async function login(email, password){
         });
         if(response){
             localStorage.setItem('email', email);
-            window.location.href="/dashboard.html";
+            window.location.href="/habits.html";
             return response.data;
         }
     }

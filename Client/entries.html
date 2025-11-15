@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="./style/header.css">
+        <link rel="stylesheet" href="./style/style2.css">
+    </head>
+    <body>
+        <div class="header">
+            <img src="./images/logo.png">
+            <div class="nav">               
+                <ul>
+                    <li><a href="./habits.html">Habits</a></li>
+                    <li><a class="active" href="./entries.html">Entries</a></li>
+                    <li><a  href="./x.html">Daily</a></li>
+                    <li><a href="./x.html">Weekly</a></li>
+                </ul>            
+            </div>
+        </div>
+        <div class="form">
+            <h2>New Entry</h2>
+            <div class="entry-container">
+                <div class="entry-box">
+                    <h3>Write what you did</h3>
+                    <textarea id="freeText" placeholder="e.g. walked 2.5 mi, 2 coffees, slept at 2:03, ate a salad for lunch"></textarea>
+                </div>
+
+                <div class="entry-box">
+                    <h3>Or just fill this form</h3>
+                    <table class="form-grid">
+                        <tr>
+                            <td id="td1">Walk</td>
+                            <td><input type="text" id="walk" placeholder="4km"></td> 
+                        </tr><tr>
+                            <td id="td1">Water</td>
+                            <td><input type="text" id="water" placeholder="4km"></td> 
+                        </tr><tr>
+                            <td id="td1">Coffee</td>
+                            <td><input type="text" id="coffee" placeholder="4km"></td> 
+                        </tr><tr>
+                            <td id="td1">Food</td>
+                            <td><input type="text" id="food" placeholder="4km"></td> 
+                        </tr><tr>
+                            <td id="td1">Sleep</td>
+                            <td><input type="text" id="sleep" placeholder="4km"></td> 
+                        </tr>
+                    </div>
+                </div>
+            </div>
+            <button onclick="">Submit</button>
+        </div>
+
+        <script src="./script/axios.min.js"></script>
+    </body>
+</html>

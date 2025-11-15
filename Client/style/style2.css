@@ -1,0 +1,124 @@
+h2{
+    text-align: center;
+    top: 0;
+    color: #1B4904;
+    font-size: 96px;
+    text-shadow: 1px 1px;
+}
+
+.entry-container{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 1300px;
+    justify-content: center;
+}
+
+
+.entry-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 45%;
+    background: #88C16C;
+    padding: 30px;
+    margin: 10px;
+    border: 2px solid #DFFBD1;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.entry-box h3{
+  margin-bottom: 10px;
+  text-align: center;
+  font-style: italic;
+  font-size: 30px;
+}
+.form{
+    position: relative;
+    margin-top: 100px;
+    background-color: #DFFBD1;
+    height: 700px;
+    border-radius: 10px;
+}
+
+input, textarea{
+    width: 100%;
+    min-height: 50px;
+    border: 2px solid rgb(187, 187, 187);
+    border-radius: 30px;
+    padding: 20px;
+    margin: 5px;
+    background-color: #DFFBD1;
+}
+tr{
+    width: 100%;
+}
+td{
+    width: 800px;
+    color: white;
+    font-size: 40px;
+    font-weight: lighter;
+}
+#td1{
+    width: 500px;
+}
+textarea{
+    height: 90%;
+    width: 90%;
+}
+button{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    background-color: #1B4904;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 20px;  
+    font-size: 18px;
+}
+.entry-box table{
+    margin: 0 auto;
+    width: auto;
+}
+
+@media (max-width: 800px) { 
+    body{
+        background: #DFFBD1;
+    }
+    h2{
+        font-size: 40px;
+    }
+    input, textarea{
+        width: 80%;
+    }
+    textarea{
+        height: 80%;
+    }
+    .entry-container{
+        width: 90%;
+    }
+    .form{
+        width: 100%;
+        justify-items: center;
+    }
+    .form h3{
+        font-size: 25px;
+    }
+    #td1{
+        font-size: 25px;
+        width: 30%;
+    }
+    .entry-box{
+        flex: 1 1 100%;
+    }
+    .header img{
+        display: none;
+    }
+    button{
+       bottom: -20%; 
+    }
+}
