@@ -4,7 +4,8 @@
 async function getHabits(){
      try{
         console.log(schema);
-        const res = await axios.post(`${BASE_URL}/api/weeklySummary.php`);
+        const res = await axios.post(`${BASE_URL}/api/dailySummary.php`,
+            email: localStorage.getItem('email'));
         let response = res.data;
         if(!Array.isArray(response)){ 
             if(isJSON(response)){
@@ -53,20 +54,20 @@ function displaySummary(summary){
     const div = document.getElementById("summary");
     //mmkn zid icons
     div.innerHTML = `
-        <h1>Today's Progress:</h1>
-        <p>Steps: <span>${summary.steps}</span </p>
-        <p>Water: <span>${summary.water} L</span></p>
-        <p>Sleep: <span>${summary.sleep} hrs </span></p>
-        <p>Calories: <span>${summary.steps} kcal </span></p>
+        <h1>Today's Process<i class="fa-solid fa-circle-check"></i></h1>
+        <p>Steps <i class="fa-solid fa-person-walking"></i> <span>${summary.steps}</span </p>
+        <p>Water <i class="fa-solid fa-whiskey-glass"></i> <span>${summary.water} L</span></p>
+        <p>Sleep <i class="fa-solid fa-bed"></i> <span>${summary.sleep} hrs </span></p>
+        <p>Calories <i class="fa-solid fa-utensils"></i> <span>${summary.calories} kcal </span></p>
     `;
 }
 function displayGaps(gaps){
     const div = document.getElementById("gaps");
     div.innerHTML = `
-        <h1>You still have:</h1>
-        <p>Steps: <span>${gaps.steps}</span </p>
-        <p>Water: <span>${gaps.water}L</span></p>
-        <p>Sleep: <span>${gaps.sleep} hrs</span></p>
-        <p>Calories: <span>${gaps.steps} </span></p>
+        <h1>You still have<i class="fa-solid fa-hourglass"></i></h1>
+        <p>Steps <i class="fa-solid fa-person-walking"> <span>${gaps.steps}</i></span </p>
+        <p>Water <i class="fa-solid fa-whiskey-glass"></i> <span>${gaps.water} L</span></p>
+        <p>Sleep <i class="fa-solid fa-bed"></i> <span>${gaps.sleep} hrs</span></p>
+        <p>Calories <i class="fa-solid fa-utensils"></i> <span>${gaps.calories} kcal </span></p>
     `; 
 }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="./style/header.css">
+        <link rel="stylesheet" href="./style/style2.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+    <body>
+        <div class="header">
+            <img src="./images/logo.png">
+            <div class="nav">               
+                <ul>
+                    <li><a href="./habits.html">Habits</a></li>
+                    <li><a  href="./entries.html">Entries</a></li>
+                    <li><a href="./daily.html">Daily</a></li>
+                    <li><a class="active" href="./weekly.html">Weekly</a></li>
+                </ul>            
+            </div>
+        </div>
+        <div class="weekly">           
+            <div id="message"></div>
+            <div class="container">
+                <div id="advices" class="box"></div>
+            </div>
+        </div>  
+        <button id="showCharts">Week Chart</button>
+        <div class="charts"></div> 
+        
+        <script src="./script/axios.min.js"></script>
+        <script src="./script/constants.js"></script>
+        <script src="./script/daily.js"></script>
+    </body>
+</html>
