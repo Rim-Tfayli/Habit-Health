@@ -19,17 +19,35 @@ function displayHabits(habits){
     const habitsList = document.getElementById("habits-list");
     habits.forEach(habit => {
       const newHabit = document.createElement("div");
-      newHabit.className = "habit-item";
+      newHabit.className = "habit-list";
       newHabit.innerHTML=`
-        <label for="">${habit.name}
-        <input type="text" id="habit-goal" value="${habit.goal}" readonly>
-        <a href="" class="delete-habit"><i class="fa-solid fa-trash"></i></a>
-        <a href="" class="edit-habit"><i class="fa-solid fa-pen-to-square"></i></a>
+        <span>${habit.name}: ${habit.goal}</span>
+        <a href="" class="delete-habit" id="${habit.id}"><i class="fa-solid fa-trash"></i></a>
       `;
       habitsList.appendChild(newHabit);
     });
-    //when the user click edit, we remove readonly attribute
-    //bsir fi y edit, based on the habit name
-    // we send new goal, name and user email since the save method only calls edit method if the same user
-    //is sending same habit name with diferent goal 
+   checkDeleteBtn();
+}
+function checkDeleteBtn(){
+    document.querySelectorAll(".delete-habit").forEach(dlt => {
+        dlt.addEventListener("click", function(e){
+        e.preventDefault();
+        const habitId = dlt.id;
+        deleteHabit(habitId);
+    });
+  });
+}
+async function deleteHabit(habitId){
+    try{
+        const habits = axios.get(`${BASE_URL}/habit/delete`,{
+            params: { id: habitId }
+        })
+        if(habits){
+            window.location.reload();
+        }
+    }
+    catch(error){
+        console.error(error);
+        return {status: 500, data: 'connection failed'};
+    }
 }
