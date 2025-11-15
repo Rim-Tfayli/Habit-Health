@@ -2,20 +2,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color:  rgb(26, 95, 21);
+    color: #1B4904;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(253, 253, 254, 1);
+    background-color: white;
 }
 .header{
     position: fixed;
     top: 0;
     width: 100%;
-    background: #98ca92ff;
+    background: #88C16C;
     display: flex;
     justify-content: space-between; 
 }
@@ -35,21 +35,24 @@ body{
 }
 .header a {
   display: block;
-  color: white;
+  color: #1B4904;
   text-align: center;
   padding: 25px;
   text-decoration: none;
 }
 .header a:hover{
-    background-color: #79af73ff;
+    background-color: #DFFBD1;
+}
+.header a.active{
+    background-color: #DFFBD1;
 }
 
 .form{
     justify-content: center;
     border: 2px solid rgb(186, 186, 186);
     border-radius: 10px;
-    background: #98ca92ff;
-    box-shadow:  2px 4px #203f16 ;
+    background: #88C16C;
+    box-shadow:  2px 4px#1B4904;
     width: 400px;
     min-height: 450px;
     padding: 30px;
@@ -68,7 +71,7 @@ body{
     border-radius: 30px;
     padding-left: 30px;
     margin: 5px;
-    background-color: rgba(237, 236, 236, 1);
+    background-color: #DFFBD1;
 }
 .button{
     padding: 0 ;
