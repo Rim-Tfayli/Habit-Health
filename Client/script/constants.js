@@ -1,5 +1,5 @@
 const URL = {
-    dev: "http://localhost/habit-health-logger/server",
+    dev: "http://localhost/SEFactory/Habit-Health-Logger/Server",
     prod: "https:///"
 }
 

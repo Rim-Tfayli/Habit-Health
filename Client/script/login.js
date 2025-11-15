@@ -1,11 +1,15 @@
-document.getElementById('submit-login').onclick = function(e){
+const btn = document.getElementById('submit-login');
+btn.addEventListener("click", function (e) {
     e.preventDefault();
 
     const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
+    const password = document.getElementById('password').value;
     
     const emailError = document.getElementById('email-error');
     const passwordError = document.getElementById('password-error');
+
+    emailError.textContent = '';
+    passwordError.textContent = '';
 
     let valid = true;
 
@@ -13,7 +17,7 @@ document.getElementById('submit-login').onclick = function(e){
         emailError.textContent = 'Invalid email format';
         valid = false;
     }
-    if(password.length < 6){
+    else if(password.length < 6){
         passwordError.textContent = 'Password must be at least 6 characters';
         valid = false;
     }
@@ -21,7 +25,7 @@ document.getElementById('submit-login').onclick = function(e){
     if (!valid) return;
 
     login(email, password);
-};
+});
 async function login(email, password){
     try{
         const response = await axios.post(`${BASE_URL}/user/login`, {
@@ -38,4 +42,9 @@ async function login(email, password){
         console.error(error);
         return {status: 500, data: 'connection failed'};
     }
+}
+function isValidEmail(email){
+    return email.match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    ); //from stack overflow
 }

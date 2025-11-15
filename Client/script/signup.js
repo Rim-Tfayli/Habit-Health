@@ -1,4 +1,5 @@
-document.getElementById('submit-signup').onclick = function(e){
+const btn = document.getElementById('submit-signup');
+btn.addEventListener("click", function (e) {
     e.preventDefault();
 
     const username = document.getElementById('username').value.trim();
@@ -13,25 +14,31 @@ document.getElementById('submit-signup').onclick = function(e){
     const confirmError = document.getElementById('confirm-error');
     const genderError = document.getElementById('gender-error');
 
+    usernameError.textContent = '';
+    emailError.textContent = '';
+    passwordError.textContent = '';
+    confirmError.textContent = '';
+    genderError.textContent = '';
+
     let valid = true;
 
     if(username === ''){
         usernameError.textContent = 'Username is required';
         valid = false;
     }
-    if(!isValidEmail(email)){
+    else if(!isValidEmail(email)){
         emailError.textContent = 'Invalid email format';
         valid = false;
     }
-    if(password < 6){
+    else if(password.length < 6){
         passwordError.textContent = 'Password must be at least 6 characters';
         valid = false;
     }
-    if(password !== confirmInput.value){
+    else if(password !== confirm){
         confirmError.textContent = 'Passwords do not match';
         valid = false;
     }
-    if (!gender) {
+    else if(!gender){
         genderError.textContent = 'Please select your gender';
         valid = false;
     }
@@ -44,18 +51,24 @@ document.getElementById('submit-signup').onclick = function(e){
         password: password,
         gender: gender
     };
+    console.log(data);
     const signup =createNewUser(data);
     if(signup)
         localStorage.setItem('email', email);
-};
+});
 async function createNewUser(data){
     try{
         const response = await axios.post(`${BASE_URL}/user/insert`, data);
-        window.location.href="/dashboard.html";
+        window.location.href="/habits.html";
         return response.data;
     } 
     catch(error){
         console.error(error);
         return { status: 500, data: 'connection failed' };
     }
+}
+function isValidEmail(email){
+    return email.match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    ); //from stack overflow
 }
