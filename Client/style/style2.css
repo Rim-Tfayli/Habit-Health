@@ -6,7 +6,7 @@ h2{
     text-shadow: 1px 1px;
 }
 
-.entry-container{
+.entry-container, .container{
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -15,7 +15,7 @@ h2{
 }
 
 
-.entry-box{
+.entry-box, .box{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,7 +25,7 @@ h2{
     margin: 10px;
     border: 2px solid #DFFBD1;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px #1B4904;
 }
 
 .entry-box h3{
@@ -98,7 +98,7 @@ button{
     textarea{
         height: 80%;
     }
-    .entry-container{
+    .entry-container, .container{
         width: 90%;
     }
     .form{
@@ -121,4 +121,31 @@ button{
     button{
        bottom: -20%; 
     }
+}
+.box{
+    margin-top: 50px !important;
+}
+.box h1{
+    font-size: 50px;
+    text-shadow: 1px 1px #DFFBD1;
+    margin-bottom: 10px;
+    color: #1B4904;
+    border-radius: 10%;
+    padding: 10px;
+    letter-spacing: 1px;
+}
+.box p{
+    font-size: 30px;
+    color: #1B4904;
+    margin: 5px 0;
+}
+#feedback{
+    padding: 20px;
+    font-size: 40px;
+}
+.daily{
+    position: relative;
+    margin-top: 100px;
+    height: 700px;
+    justify-items: center;
 }

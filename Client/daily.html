@@ -11,28 +11,24 @@
             <img src="./images/logo.png">
             <div class="nav">               
                 <ul>
-                    <li><a class="active" href="./habits.html">Habits</a></li>
-                    <li><a href="./entries.html">Entries</a></li>
-                    <li><a href="./daily.html">Daily</a></li>
+                    <li><a href="./habits.html">Habits</a></li>
+                    <li><a  href="./entries.html">Entries</a></li>
+                    <li><a class="active" href="./daily.html">Daily</a></li>
                     <li><a href="./weekly.html">Weekly</a></li>
                 </ul>            
             </div>
         </div>
-        <div class="form">
-            <h2>New Entry</h2>
-            <div id="habits-list">
-                
-
+        <div class="daily">
+            
+            <div id="feedback"></div>
+            <div class="container">
+                <div id="summary" class="box"></div>
+                <div id="gaps" class="box"></div>
             </div>
-            <div class="btns">
-                <a href=""><i class="fa-solid fa-plus"></i></a>
-                <a href="" class="edit-habit"><i class="fa-solid fa-pen-to-square"></i></a>
-            </div>
-
         </div>   
         
 
-        <script src="./script/habits.js"></script>
+        <script src="./script/daily.js"></script>
         <script src="./script/axios.min.js"></script>
     </body>
 </html>
