@@ -22,7 +22,7 @@
             <div class="entry-container">
                 <div class="entry-box">
                     <h3>Write what you did</h3>
-                    <textarea id="freeText" placeholder="e.g. walked 2.5 mi, 2 coffees, slept at 2:03, ate a salad for lunch"></textarea>
+                    <textarea id="entry" placeholder="e.g. walked 2.5 mi, 2 coffees, slept at 2:03, ate a salad for lunch"></textarea>
                 </div>
 
                 <div class="entry-box">
@@ -47,9 +47,11 @@
                     </div>
                 </div>
             </div>
-            <button onclick="">Submit</button>
+            <button class="button" id="submit-entry" type="submit">Submit</button>
         </div>
 
         <script src="./script/axios.min.js"></script>
+        <script src="./script/constants.js"></script>
+        <script src="./script/entries.js"></script>
     </body>
 </html>
