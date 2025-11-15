@@ -4,11 +4,17 @@ class AiResponseService {
         $aiResponse = new AiResponse($data);
         return $aiResponse->save($connection, "id");
     }
-    public static function findByEntry(mysqli $connection, int $entry_id){
-        $ai_response = AiResponse::find($connection, $entry_id, "entry_id");
-        $ai_response = $ai_response ? $ai_response->toArray() : [];
-        return $ai_response;
-        //to display it
+    public static function findAiResponsesByUser(mysqli $connection, string $email){
+        $user = UserService::findUserByEmail($connection,$email);
+        if($user){
+            $userId = $user["id"];
+        }
+        $aiResponses = AiResponse::findAll($connection, "user_id", $userId);
+        $aiResponsesArray = [];
+        foreach ($aiResponses as $aiResponse) {
+            $aiResponsesArray[] = $aiResponse->toArray(); 
+        }
+            return $aiResponsesArray;
     }
 }
 ?>

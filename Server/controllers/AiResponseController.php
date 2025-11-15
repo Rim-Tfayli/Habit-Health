@@ -9,12 +9,12 @@ class AiResponseController{
     //to display summary for the user
     function getAiResponse(){
         global $connection;
-        if(isset($_GET['entry_id'])){
-            $entry_id = $_GET['entry_id'];            
-            $ai_response = AiResponseService::findByEntry($connection, $entry_id);
-            echo ResponseService::response(200, $ai_response);
+        if(isset($_GET['email'])){
+            $user_email = $_GET['email'];            
+            $ai_responses = AiResponseService::findAiResponsesByUser($connection, $user_email);
+            echo ResponseService::response(200, $ai_responses);
         } else {
-            echo ResponseService::response(400, "Entry ID missing");
+            echo ResponseService::response(400, "User Email missing");
         }
     }
 
