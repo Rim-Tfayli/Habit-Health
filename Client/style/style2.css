@@ -126,6 +126,7 @@ button:hover{
     button{
        bottom: -20%; 
     }
+
 }
 .box{
     margin-top: 50px !important;
@@ -154,4 +155,8 @@ button:hover{
     margin-top: 100px;
     height: 700px;
     justify-items: center;
+}
+.weekly li{
+    font-size: 20px;
+    padding: 5px;
 }
