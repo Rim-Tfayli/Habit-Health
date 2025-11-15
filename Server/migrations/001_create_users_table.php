@@ -7,7 +7,7 @@ $sql = "CREATE TABLE IF NOT EXISTS users(
           email VARCHAR(255) UNIQUE NOT NULL,
           password TEXT NOT NULL,
           gender ENUM('male','female'),
-          user_type_id INT,
+          user_type_id INT DEFAULT 2,
           FOREIGN KEY (user_type_id) REFERENCES user_types(id)
         )";
           
