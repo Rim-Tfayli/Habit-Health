@@ -100,10 +100,11 @@ abstract class Model{
 
     //this function will be used for summaries
     public static function findByDate(mysqli $connection, string $start, string $end, string $column = "", $value = null){
-        $sql = sprintf("SELECT * FROM %s WHERE  %s = ? AND %s BETWEEN ? AND ?",
+        $sql = sprintf("SELECT * FROM %s WHERE  %s = ? AND %s BETWEEN ? AND ? ORDER BY created_at",
                     static::$table,
                     $column,
-                    "created_at");
+                    "created_at",
+                    );
 
         $query = $connection->prepare($sql);
         $query->bind_param("iss", $value, $start, $end);
