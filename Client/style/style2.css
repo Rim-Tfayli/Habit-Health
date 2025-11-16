@@ -76,7 +76,8 @@ button, .submit{
     color: white;
     border: none;
     border-radius: 30px;
-    font-size: 18px;
+    font-size: 30px;
+    padding: 10px;
 }
 button:hover, .submit:hover{
     color: #1B4904;
@@ -86,6 +87,10 @@ button:hover, .submit:hover{
 .entry-box table{
     margin: 0 auto;
     width: auto;
+}
+.submit{
+    bottom: 100%;
+    position: relative;
 }
 
 @media (max-width: 800px) { 
@@ -101,21 +106,23 @@ button:hover, .submit:hover{
     textarea{
         height: 80%;
     }
-    .entry-container, .container{
+    .entry-container, .container, .add_new{
         width: 90%;
+         max-width: 100%;
     }
     .form{
         width: 100%;
         justify-items: center;
     }
-    .form h3{
-        font-size: 25px;
+    .form h3, .add_new_container h3{
+        text-align: center !important;
+        font-size: 25px !important;
     }
     #td1{
         font-size: 25px;
         width: 30%;
     }
-    .entry-box{
+    .entry-box, .add_new{
         flex: 1 1 100%;
     }
     .header img{
@@ -123,14 +130,39 @@ button:hover, .submit:hover{
     }
     button, #submit, #add{
        bottom: -20%; 
+       text-align: center;
     }
     .habit-list{
-        width: 500px !important;
+        width: 100% !important;
+        margin-top: 0;
+    } 
+    .add_new_container{
+        position: static !important;
+       transform: translateY(50%);
     }
+
+    .add_new{
+        flex-direction: column;
+        align-items: center;
+        background-color: #DFFBD1 !important;
+    }
+    .add_new input, #add_new{
+        width: 50% !important;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+    #show_habits_btn{
+        transform: translateY(100%);
+    }
+    body{
+        display: block;
+    }
+  
 }
 .box{
     margin-top: 50px !important;
 }
+
 .box h1{
     font-size: 50px;
     text-shadow: 1px 1px #DFFBD1;
@@ -164,14 +196,17 @@ button:hover, .submit:hover{
     border: 2px solid #DFFBD1 !important;
 }
 .habit-list{
+    position: relative;
     display: flex;
     margin: 10px;
     height: 70px;
-    width: 800px;
+    width: 900px;
+    
     border: 2px solid #1B4904 !important;
     border-radius: 10px;
     background-color: #1B4904;
 }
+
 .habit-list a, .habit-list span, .habit-list i{
     transform: translateY(25%);
     font-size: 20px;
@@ -187,15 +222,47 @@ button:hover, .submit:hover{
 .habit-list span{
     font-size: 30px;
     margin-left: 20px;
+}
+
+.add_new{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    height: 70px;
+    width: 800px;
+    border-radius: 10px;
+    background-color: #f0fff0;
+}
+#add_new{
+    color: #1B4904;
+    background-color: #88C16C;
+    border: 2px solid  #1B4904 ;
+    border-radius: 30px;
+    font-size: 25px;
+    padding: 15px;
+}
+#add_new:hover{
+    color:  #88C16C;
+    background-color: #1B4904;
 
 }
-.submit{
-    text-decoration: none;
-    font-size: 30px;
-    padding: 10px;
-    background-color: #88C16C;
-    color: #1B4904;
+.add_new_container{
+    position: absolute;
+    top: 20%;
 }
-.remove-add{
-    display: none;
+.add_new_container h3{
+    font-size: 35px;
+}
+#show_habits{
+    padding: 10px;
+    position: relative;
+    margin-top: 50px; 
+
+}
+#habit_name{
+    width: 40%;
+}
+.habit-list-container{
+    margin-top: 400px;
 }
