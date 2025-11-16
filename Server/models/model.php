@@ -106,15 +106,17 @@ abstract class Model{
                     "created_at");
 
         $query = $connection->prepare($sql);
-        $query->bind_param("ssi", $start, $end, $value);
+        $query->bind_param("iss", $value, $start, $end);
         $query->execute();
 
         $data = $query->get_result();
         $rows = [];
         while($row = $data->fetch_assoc()){
             $rows[] = (new static($row))->toArray();
+            
         }
         return $rows;
+
     }
 
 

@@ -20,12 +20,15 @@
     }
     //getting weekly summary
     //and acting like nutrition coach to give health advice
+    $email = $data['email'];
+    $user = UserService::findUserByEmail($connection,$email);
 
     $startdate = date("Y-m-d 00:00:00", strtotime("-1 week")); 
     $enddate = date("Y-m-d 23:59:59");
-    $entries = Entry::findByDate($connection, $startdate, $enddate);
+    $entries = Entry::findByDate($connection, $startdate, $enddate, "user_id", $user['id']);
+
     $entriesJson = json_encode($entries, JSON_PRETTY_PRINT);
-    
+  /*  
     $apiKey = "";
 
     $prompt = " $prompt3  \n\"$entriesJson\"";
@@ -71,8 +74,11 @@
             echo ResponseService::response(500, "Reuired keys are missing");
             exit;
         }
-    }
-    echo ResponseService::response(200, $resultData);
+    }*/
+    echo ResponseService::response(200, $entriesJson);
+
+    echo ResponseService::response(200, $entries);
+
 
 
 

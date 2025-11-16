@@ -3,9 +3,9 @@ include ('../connection/connection.php');
 
 $sql = "CREATE TABLE IF NOT EXISTS ai_response(
         id INT AUTO_INCREMENT PRIMARY KEY,
-        entry_id INT NOT NULL,
+        user_id INT NOT NULL,
         steps INT,
-        minutes INT,
+        water INT,
         caffeine INT,
         sleep_time TIME,
         calories INT,
