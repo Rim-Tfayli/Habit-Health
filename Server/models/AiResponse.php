@@ -6,7 +6,7 @@ class AiResponse extends Model{
     protected static string $primary_key = "id";
 
     protected ?int $id = null;
-    protected int $entry_id;
+    protected int $user_id;
     protected int $steps;
     protected int $water;
     protected int $caffeine;
@@ -15,7 +15,7 @@ class AiResponse extends Model{
     protected int $calories;
 
     public function __construct(array $data = []){
-        $this->entry_id = (int)$data["entry_id"];
+        $this->user_id = (int)$data["user_id"];
         $this->steps = $data["steps"];
         $this->water = (int)$data["water"];
         $this->caffeine = $data["caffeine"];
@@ -26,7 +26,7 @@ class AiResponse extends Model{
     public function toArray(){
         return [
             "id" => $this->id,
-            "entry_id" => $this->entry_id,
+            "user_id" => $this->user_id,
             "steps" => $this->steps,
             "water" => $this->water,
             "caffeine" => $this->caffeine,

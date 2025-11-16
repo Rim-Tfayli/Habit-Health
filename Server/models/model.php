@@ -99,13 +99,14 @@ abstract class Model{
     }
 
     //this function will be used for summaries
-    public static function findByDate(mysqli $connection, string $start, string $end){
-        $sql = sprintf("SELECT * FROM %s WHERE %s BETWEEN ? AND ?",
+    public static function findByDate(mysqli $connection, string $start, string $end, string $column = "", $value = null){
+        $sql = sprintf("SELECT * FROM %s WHERE  %s = ? AND %s BETWEEN ? AND ?",
                     static::$table,
+                    $column,
                     "created_at");
 
         $query = $connection->prepare($sql);
-        $query->bind_param("ss", $start, $end);
+        $query->bind_param("ssi", $start, $end, $value);
         $query->execute();
 
         $data = $query->get_result();

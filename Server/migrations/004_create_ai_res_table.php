@@ -10,7 +10,7 @@ $sql = "CREATE TABLE IF NOT EXISTS ai_response(
         sleep_time TIME,
         calories INT,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (entry_id) REFERENCES entries(id) ON DELETE CASCADE
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
         )";
 
 $query = $connection->prepare($sql);

@@ -7,10 +7,10 @@ require_once(__DIR__ . "/../services/AiResponeService.php");
 
 class AiResponseController{
     //to display summary for the user
-    function getAiResponse(){
+    function getWeeklyAiResponse(){
         global $connection;
         if(isset($_GET['email'])){
-            $user_email = $_GET['email'];            
+            $user_email = $_GET['email']; 
             $ai_responses = AiResponseService::findAiResponsesByUser($connection, $user_email);
             echo ResponseService::response(200, $ai_responses);
         } else {
