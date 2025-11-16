@@ -1,8 +1,8 @@
 window.onload = function() {
-  getHabits();
+  getWeeklySummary();
   
 };
-async function getHabits(){
+async function getWeeklySummary(){
      try{
         console.log(schema);
         const res = await axios.post(`${BASE_URL}/api/weeklySummary.php`,{
@@ -26,6 +26,7 @@ async function getHabits(){
         return {status: 500, data: 'connection failed'};
     }
 }
+/*
 adv = {        
     "summary": {
         "steps": "10500",
@@ -45,7 +46,7 @@ adv = {
     }
 }
 message(adv.message);
-advices(adv.advices);
+advices(adv.advices);*/
 function message(msg){
     const message = document.getElementById("message");
     message.innerHTML=msg;
