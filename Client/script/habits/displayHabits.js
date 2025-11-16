@@ -1,38 +1,6 @@
-/*window.onload = function() {
+window.onload = function() {
   getHabits();
-};*/
-const habits = [
-  {
-    "id": 1,
-    "name": "Water Intake",
-    "goal": "3 liters per day",
-    "user_id": 5
-  },
-  {
-    "id": 2,
-    "name": "Steps",
-    "goal": "8000 steps",
-    "user_id": 5
-  },
-  {
-    "id": 3,
-    "name": "Sleep",
-    "goal": "7 hours",
-    "user_id": 5
-  },
-  {
-    "id": 4,
-    "name": "Calories",
-    "goal": "1800 kcal",
-    "user_id": 5
-  },
-  {
-    "id": 5,
-    "name": "Caffeine",
-    "goal": "2 cups max",
-    "user_id": 5
-  }
-]
+};
 
 function displayHabits(habits){
     const habitsList = document.getElementById("habits-list");

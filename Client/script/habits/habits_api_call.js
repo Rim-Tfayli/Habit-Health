@@ -11,7 +11,7 @@ async function addNewHabit(new_habit){
         return {status: 500, data: 'connection failed'};
     }
 }
-/*
+
 async function getHabits(){
     try{
         const habits = axios.get(`${BASE_URL}/habits`,{
@@ -25,7 +25,7 @@ async function getHabits(){
         console.error(error);
         return {status: 500, data: 'connection failed'};
     }
-}*/
+}
 
 //async function to send the updates to the server
 //note that what the server gets same user email and same habit name with different goal

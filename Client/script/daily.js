@@ -1,11 +1,13 @@
-/*window.onload = function() {
+window.onload = function() {
   getHabits();
 };
 async function getHabits(){
      try{
         console.log(schema);
-        const res = await axios.post(`${BASE_URL}/api/dailySummary.php`,
-            email: localStorage.getItem('email'));
+        const res = await axios.post(`${BASE_URL}/api/dailySummary.php`,{
+            email: localStorage.getItem('email')
+        });
+        
         let response = res.data;
         if(!Array.isArray(response)){ 
             if(isJSON(response)){
@@ -24,23 +26,6 @@ async function getHabits(){
         console.error("Error!", error);
         return {status: 500, data: 'connection failed'};
     }
-}*/
-const response = {
-    "summary":{
-        "steps":9000,
-        "water":522,
-        "sleep": 13,
-        "calories": 2000
-    },
-    "gaps":{
-        "steps":9000,
-        "water":522,
-        "sleep": 13,
-        "calories": 2000
-    },
-    "feedback":[
-        "you are so cute mon amour"
-    ]   
 }
 displaySummary(response.summary);
 displayGaps(response.gaps);
