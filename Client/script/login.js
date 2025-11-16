@@ -33,7 +33,9 @@ async function login(email, password){
             password: password
         });
         if(response){
+            const user = response.data.data;
             localStorage.setItem('email', email);
+            localStorage.setItem('user_type', user.user_type_id);
             window.location.href="/habits.html";
             return response.data;
         }
