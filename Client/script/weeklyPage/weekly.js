@@ -1,5 +1,5 @@
-window.onload = function() {
-    checkAuth();
+/*window.onload = function() {
+  //  checkAuth();
     getWeeklySummary();
 };
 async function getWeeklySummary(){
@@ -46,7 +46,7 @@ adv = {
     }
 }
 message(adv.message);
-advices(adv.advices);*/
+advices(adv.advices);
 function message(msg){
     const message = document.getElementById("message");
     message.innerHTML=msg;
@@ -64,4 +64,4 @@ const btn = document.getElementById("showCharts");
 dlt.addEventListener("click", function(e){
     e.preventDefault();
     displayCharts();
-});
+});*/

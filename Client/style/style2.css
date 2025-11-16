@@ -157,6 +157,9 @@ button:hover, .submit:hover{
     body{
         display: block;
     }
+    .charts{
+        display: block;
+    }
   
 }
 .box{
@@ -265,4 +268,22 @@ button:hover, .submit:hover{
 }
 .habit-list-container{
     margin-top: 400px;
+}
+
+.charts{
+    margin-top: 100px;
+    position: relative;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 200px;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;;
+}
+canvas{
+
+}
+.weekly{
+    display: none;
 }
