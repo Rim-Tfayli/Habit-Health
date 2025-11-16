@@ -67,20 +67,18 @@ textarea{
     height: 90%;
     width: 90%;
 }
-button{
+button, .submit{
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 200px;
     background-color: #1B4904;
     color: white;
     border: none;
     border-radius: 30px;
-    padding: 12px 20px;  
     font-size: 18px;
 }
-button:hover{
+button:hover, .submit:hover{
     color: #1B4904;
     background-color: #88C16C;
     border: solid  1px  #1B4904 ;
@@ -123,10 +121,12 @@ button:hover{
     .header img{
         display: none;
     }
-    button{
+    button, #submit, #add{
        bottom: -20%; 
     }
-
+    .habit-list{
+        width: 500px !important;
+    }
 }
 .box{
     margin-top: 50px !important;
@@ -159,4 +159,43 @@ button:hover{
 .weekly li{
     font-size: 20px;
     padding: 5px;
+}
+.input-edit{
+    border: 2px solid #DFFBD1 !important;
+}
+.habit-list{
+    display: flex;
+    margin: 10px;
+    height: 70px;
+    width: 800px;
+    border: 2px solid #1B4904 !important;
+    border-radius: 10px;
+    background-color: #1B4904;
+}
+.habit-list a, .habit-list span, .habit-list i{
+    transform: translateY(25%);
+    font-size: 20px;
+    color: #DFFBD1;
+    margin-right: 20px;
+}
+.habit-list input{
+    border: 1px solid #1B4904;
+    background-color: #1B4904;
+    font-size: 20px;
+    color: #DFFBD1;
+}
+.habit-list span{
+    font-size: 30px;
+    margin-left: 20px;
+
+}
+.submit{
+    text-decoration: none;
+    font-size: 30px;
+    padding: 10px;
+    background-color: #88C16C;
+    color: #1B4904;
+}
+.remove-add{
+    display: none;
 }
