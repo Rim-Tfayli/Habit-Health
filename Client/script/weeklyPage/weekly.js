@@ -1,5 +1,5 @@
-/*window.onload = function() {
-  //  checkAuth();
+window.onload = function() {
+    checkAuth();
     getWeeklySummary();
 };
 async function getWeeklySummary(){
@@ -26,7 +26,7 @@ async function getWeeklySummary(){
         return {status: 500, data: 'connection failed'};
     }
 }
-/*
+
 adv = {        
     "summary": {
         "steps": "10500",
@@ -63,5 +63,6 @@ function advices(adv){
 const btn = document.getElementById("showCharts");
 dlt.addEventListener("click", function(e){
     e.preventDefault();
+    document.getElementById("weekly").classList.add("hide");
     displayCharts();
-});*/
+});
