@@ -1,7 +1,3 @@
-window.onload = function() {
-  getHabits();
-};
-
 function displayHabits(habits){
     const habitsList = document.getElementById("habits-list");
     const title = document.createElement("h2");

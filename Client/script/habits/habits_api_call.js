@@ -19,6 +19,7 @@ async function getHabits(){
          })
         if(habits){
             console.log("habits are ready");
+            displayHabits(habits.data);
         }
     }
     catch(error){

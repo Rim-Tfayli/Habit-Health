@@ -14,7 +14,7 @@ add_new_btn.addEventListener("click", function(e){
 const show_habits = document.getElementById("show_habits");
 show_habits.addEventListener("click", function(e){
         e.preventDefault();
-        displayHabits(habits);
+        getHabits();
 });
 
 
