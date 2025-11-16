@@ -21,7 +21,7 @@ class AiResponse extends Model{
         $this->caffeine = $data["caffeine"];
         $this->sleep_time = (int)$data["sleep_time"];
         $this->calories = $data["calories"];
-
+        $this->created_at = $data["created_at"];
     }
     public function toArray(){
         return [
@@ -31,7 +31,8 @@ class AiResponse extends Model{
             "water" => $this->water,
             "caffeine" => $this->caffeine,
             "sleep_time" => $this->sleep_time,
-            "calories" => $this->calories
+            "calories" => $this->calories,
+            "created_at" => $this->created_at
         ];
     }
 }
