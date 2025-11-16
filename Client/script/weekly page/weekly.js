@@ -1,6 +1,6 @@
 window.onload = function() {
-  getWeeklySummary();
-  
+    checkAuth();
+    getWeeklySummary();
 };
 async function getWeeklySummary(){
      try{

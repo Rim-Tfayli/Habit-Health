@@ -1,3 +1,6 @@
+window.onload = function() {
+    checkAuth();
+};
 const submit = document.getElementById("submit-entry");
 submit.addEventListener("click", function (e) {
         e.preventDefault();

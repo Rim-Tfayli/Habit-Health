@@ -1,5 +1,6 @@
 window.onload = function() {
-  getHabits();
+    checkAuth();
+    getHabits();
 };
 async function getHabits(){
      try{
