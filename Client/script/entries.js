@@ -36,7 +36,7 @@ async function addNewEntry(data){
     try{
         const response = await axios.post(`${BASE_URL}/entry/insert`, data);
         if(response){
-            window.location.href="/.html"; //dailySaummary maybe(hunik i should first call dailySummary.php)
+            window.location.href="/.html";
             return response.data;
         }
     }

@@ -38,7 +38,6 @@ function displayFeedback(feedback){
 }
 function displaySummary(summary){
     const div = document.getElementById("summary");
-    //mmkn zid icons
     div.innerHTML = `
         <h1>Today's Process<i class="fa-solid fa-circle-check"></i></h1>
         <p>Steps <i class="fa-solid fa-person-walking"></i> <span>${summary.steps}</span </p>

@@ -21,7 +21,6 @@ function displayUsers(users){
       current.innerHTML=`
             <span>${user.username}</span>
             <div id="info-${user.id}" class="user-info-container"></div>
-            <mmkn hot last entry msln>
             <a href="" class="user-info" id="${user.id}"><i class="fas fa-info-circle"></i></a>
             <a href="" class="delete-user" id="${user.id}"><i class="fa-solid fa-trash"></i></a>
       `;
@@ -31,7 +30,6 @@ function displayUsers(users){
     checkDeleteBtn();
     checkEditBtn(usersList);
 }
-//fkra: when the admin clicks (user-info), it shows his email, gender and maybe last entry or aymta he joind or 
 
 async function checkInfoBtn() {
     const infoBtns = document.querySelectorAll(".user-info");
@@ -44,7 +42,7 @@ async function checkInfoBtn() {
     });
 }
 
-async function getInfos(userId){
+async function getUserInfo(userId){
     try{
         const response = await axios.get(`${BASE_URL}/users/info`,{ 
             params:{ id: userId }
@@ -59,9 +57,9 @@ async function getInfos(userId){
 function displayUserInfo(userId, info){
     const infoDiv = document.getElementById(`info-${userId}`);
     infoDiv.innerHTML = `
-        <p>Email: ${data.email}</p>
-        <p>Gender: ${data.gender}</p>
-        <p>Date Joined: ${data.created_at}</p>
+        <p>Email: ${info.email}</p>
+        <p>Gender: ${info.gender}</p>
+        <p>Date Joined: ${info.created_at}</p>
         <p>Last Entry:"to be implemented bl backend"</p>
     `;
 }
@@ -76,7 +74,7 @@ function checkDeleteBtn(){
 }
 async function deleteUser(userId){
     try{
-        const user = axios.get(`${BASE_URL}/user/delete`,{
+        const user =  await axios.delete(`${BASE_URL}/user/delete`,{
             params: { id: userId }
         })
         if(user.status===200){
@@ -88,4 +86,3 @@ async function deleteUser(userId){
         return {status: 500, data: 'connection failed'};
     }
 }
-//pie chart that present to used habits

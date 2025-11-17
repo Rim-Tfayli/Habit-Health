@@ -44,7 +44,7 @@ function createPieChart(names, count){
             legend: {display:true},
             title: {
                 display: true,
-                text: "World Wine Production 2018",
+                text: "Top 5 Habits",
                 font: {size:16}
             }
             }

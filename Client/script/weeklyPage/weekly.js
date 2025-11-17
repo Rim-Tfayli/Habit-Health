@@ -26,27 +26,6 @@ async function getWeeklySummary(){
         return {status: 500, data: 'connection failed'};
     }
 }
-
-adv = {        
-    "summary": {
-        "steps": "10500",
-        "water": "2.5",
-        "caffeine": "70",
-        "sleep_time": "4"
-    },
-    "message": [
-        "Ahsante ya bannut keep going you can do it"
-    ],
-    "advices": {
-        "adv1": "You should drink more water.",
-        "adv2": "You should balance caffeine intake.",
-        "adv3": "You should sleep more",
-        "adv4": "You should include more protein in your meals.",
-        "adv5": "You shouldmove more."
-    }
-}
-message(adv.message);
-advices(adv.advices);
 function message(msg){
     const message = document.getElementById("message");
     message.innerHTML=msg;

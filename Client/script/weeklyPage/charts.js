@@ -1,4 +1,4 @@
-/*sync function displayCharts() {
+async function displayCharts() {
     try{
         const data = await axios.post(`${BASE_URL}/aiResponse`,{
             email: localStorage.getItem('email')
@@ -10,8 +10,7 @@
     catch(error){
         console.error("Error", error);
     }
-    
-}*/
+}
 const resp = {
     "status": 200,
     "data": [
