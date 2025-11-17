@@ -10,18 +10,18 @@ class AiResponse extends Model{
     protected int $steps;
     protected int $water;
     protected int $caffeine;
-    protected string $sleep_time;
+    protected int $sleep_time;
     protected ?string $created_at = null;
     protected int $calories;
 
     public function __construct(array $data = []){
         $this->user_id = (int)$data["user_id"];
-        $this->steps = $data["steps"];
+        $this->steps = (int)$data["steps"];
         $this->water = (int)$data["water"];
-        $this->caffeine = $data["caffeine"];
+        $this->caffeine = (int)$data["caffeine"];
         $this->sleep_time = (int)$data["sleep_time"];
-        $this->calories = $data["calories"];
-        $this->created_at = $data["created_at"];
+        $this->calories = (int)$data["calories"];
+        $this->created_at = (int)$data["created_at"];
     }
     public function toArray(){
         return [
