@@ -14,6 +14,8 @@ $apis = [
     '/habits'       => ['controller' => 'HabitController', 'method' => 'getHabitByUser'],
     '/habit/insert'  => ['controller' => 'HabitController', 'method' => 'saveHabit'],
     '/habit/delete'  => ['controller' => 'HabitController', 'method' => 'deleteHabit'],
+    '/habit/topHabits'  => ['controller' => 'HabitController', 'method' => 'getTopHabits'],
+
 
     '/aiResponse'        => ['controller' => 'AiResponseController', 'method' => 'getWeeklyAiResponse'],
     '/aiResponse/insert' => ['controller' => 'AiResponseController', 'method' => 'saveAiResponse']

@@ -20,7 +20,7 @@ class HabitController {
         }   
         return;
     }   
-    public function saveHabit(){
+    function saveHabit(){
         global $connection;
         $data = json_decode(file_get_contents("php://input"), true);
         if($data){
@@ -37,7 +37,7 @@ class HabitController {
             return;
         }
     }
-    public function deleteHabit(){
+    function deleteHabit(){
         global $connection;
         if(isset($_GET["id"])){
             $id = $_GET["id"];
@@ -50,6 +50,11 @@ class HabitController {
         }
         echo ResponseService::response(400, "Habit ID is missing");
         return;            
+    }
+    function getTopHabits(){
+        global $connection;
+        $topHabits = Habit::getTop($connection);
+        echo ResponseService::response(200, $topHabits);
     }
 }
 
