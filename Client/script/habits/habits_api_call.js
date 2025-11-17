@@ -50,7 +50,7 @@ async function deleteHabit(habitId){
         const habits = axios.get(`${BASE_URL}/habit/delete`,{
             params: { id: habitId }
         })
-        if(habits){
+        if(habits.status===200){
             window.location.reload();
         }
     }
