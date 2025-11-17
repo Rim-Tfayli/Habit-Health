@@ -8,6 +8,7 @@ $sql = "CREATE TABLE IF NOT EXISTS users(
           password TEXT NOT NULL,
           gender ENUM('male','female'),
           user_type_id INT DEFAULT 2,
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
           FOREIGN KEY (user_type_id) REFERENCES user_types(id)
         )";
           

@@ -10,6 +10,7 @@ class User extends Model {
     protected string $password;
     protected string $gender;
     protected int $user_type_id;
+    protected ?string $created_at = null;
 
     protected static string $table = "users";
 
@@ -20,6 +21,7 @@ class User extends Model {
         $this->password = $data["password"];
         $this->gender = $data["gender"];
         $this->user_type_id = (int)$data["user_type_id"];
+        $this->created_at = (int)$data["created_at"];
     }
 
     public function getID(){
@@ -68,7 +70,8 @@ class User extends Model {
             "username" => $this->username,
             "email" => $this->email,
             "password" => $this->password,
-            "gender" => $this->gender
+            "gender" => $this->gender,
+            "created_at" => $this->created_at
         ];
     }
 
