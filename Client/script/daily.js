@@ -4,30 +4,21 @@ window.onload = function() {
 };
 async function getHabits(){
      try{
-        console.log(schema);
         const res = await axios.post(`${BASE_URL}/api/dailySummary.php`,{
             email: localStorage.getItem('email')
         });
         
         let response = res.data;
-        if(!Array.isArray(response)){ 
-            if(isJSON(response)){
-                response = JSON.parse(response); 
-            }
-            else{
-                console.error("Response is not valid JSON");
-                return;
-            }
-        }
-        displaySummary(response.summary);
-        displayGaps(response.gaps);
-        displayFeedback(response.feedback);        
+        console.log(response);
+        //displaySummary(response.summary);
+        //displayGaps(response.gaps);
+        //displayFeedback(response.feedback);        
     } 
     catch(error){
         console.error("Error!", error);
         return {status: 500, data: 'connection failed'};
     }
-}
+}/*
 displaySummary(response.summary);
 displayGaps(response.gaps);
 displayFeedback(response.feedback);    
@@ -56,3 +47,4 @@ function displayGaps(gaps){
         <p>Calories <i class="fa-solid fa-utensils"></i> <span>${gaps.calories} kcal </span></p>
     `; 
 }
+*/

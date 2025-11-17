@@ -24,7 +24,7 @@ class User extends Model {
         $this->gender = $data["gender"];
         $this->user_type_id = $data["user_type_id"] ?? null;
 
-        $this->created_at = $data["created_at"] ?? null;
+        $this->created_at = $data["created_at"];
         $this->last_entry = $data["last_entry"] ?? null;
         $this->total_entries = $data["total_entries"] ?? 0;
     }
@@ -66,7 +66,8 @@ class User extends Model {
     }
 
     public function __toString(){
-        return $this->id . " | " . $this->username . " | " . $this->password . " | " . $this->gender;
+        return $this->id . " | " . $this->username . " | " . $this->password . " | " .
+         $this->gender. " | " . $this->last_entry . " | " . $this->last_entry . " | " . $this->created_at;
     }
     
     public function toArray(){

@@ -1,5 +1,6 @@
 window.onload = function() {
-    checkAuthorization();
+   checkAuthorization();
+   getTopHabits();
 };
 function checkAuthorization(){
     const user_type = localStorage.getItem('user_type');

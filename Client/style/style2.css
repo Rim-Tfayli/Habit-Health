@@ -187,9 +187,7 @@ button:hover, .submit:hover{
     color: #c2430cff;
 }
 .daily, .weekly{
-    position: relative;
     margin-top: 100px;
-    height: 700px;
     justify-items: center;
 }
 .weekly li{
@@ -212,19 +210,19 @@ button:hover, .submit:hover{
 }
 
 .habit-list a, .habit-list span, .habit-list i,
-.users-list a, .users-list span, .useres-list i{
+.users-list a, .users-list span, .users-list i{
     transform: translateY(25%);
     font-size: 20px;
     color: #DFFBD1;
     margin-right: 20px;
 }
-.habit-list input, .useres-list input{
+.habit-list input, .users-list input{
     border: 1px solid #1B4904;
     background-color: #1B4904;
     font-size: 20px;
     color: #DFFBD1;
 }
-.habit-list span, .useres-list span{
+.habit-list span, .users-list span{
     font-size: 30px;
     margin-left: 20px;
 }
@@ -288,4 +286,49 @@ button:hover, .submit:hover{
 }
 #myChart{
     height:400px !important;
+}
+.weekly{
+    width: 100%;
+    position: absolute;
+}
+
+#users-list .username{
+    font-size: 25px;
+}
+#users-list a{
+    color: #DFFBD1;
+}
+.admin-container{
+    position: absolute;
+    top: 10%;
+}
+.chart-Container{
+    justify-content: center;
+    position: relative;
+    padding-left: 25%;
+}
+
+.user-info-container {
+  padding: 10px 12px;
+  background-color: #e6f2ff;
+  border-left: 4px solid #007bff;
+  border-radius: 6px;
+  font-size: 0.9em;
+  color: #333;
+  display: none;
+  z-index: 1;
+  height: 125px;
+  animation: fadeIn 0.3s ease-in-out;
+  float: left;
+  position: absolute;
+  right: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.user-info-container p {
+  margin: 4px 0;
 }

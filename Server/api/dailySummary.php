@@ -18,10 +18,12 @@
     }
     //getting today's entries to get summary
     //and comparing them with habits to get feedbacks
+    $email = $data['email'];
+    $user = UserService::findUserByEmail($connection,$email);
 
     $start = date("Y-m-d 00:00:00");
     $end = date("Y-m-d 23:59:59");
-    $entries = Entry::findByDate($connection, $start, $end);
+    $entries = Entry::findByDate($connection, $start, $end, "user_id", $user['id']);
     $habits = HabitService::findHabitsByUser($connection, $data['email']);
 
     $habits_entries = [

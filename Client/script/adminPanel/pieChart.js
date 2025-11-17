@@ -1,7 +1,9 @@
+getTopHabits();
 async function getTopHabits(){
     try{
         const topHabits = await axios.get(`${BASE_URL}/habit/topHabits`);
-        prepareData(topHabits.data);
+        prepareData(topHabits.data.data);
+        //console.log(topHabits.data);
     }
     catch(error){
         console.error(error);
@@ -15,6 +17,7 @@ function prepareData(topHabits){
         names.push(val.name); 
         count.push(val.habit_count); 
     });
+    console.log(names);
     createPieChart(names, count);
 }
 function createPieChart(names, count){

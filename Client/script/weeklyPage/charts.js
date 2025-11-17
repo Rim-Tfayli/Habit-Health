@@ -1,42 +1,17 @@
-async function displayCharts() {
+/*async function displayCharts() {
     try{
         const data = await axios.post(`${BASE_URL}/aiResponse`,{
             email: localStorage.getItem('email')
         })
         if(data){
-            prepareData(data);
+            console.log(data)
+            prepareData(data.data);
         }
    }
     catch(error){
         console.error("Error", error);
     }
 }
-const resp = {
-    "status": 200,
-    "data": [
-        {
-            "id": null,
-            "user_id": 1,
-            "steps": 10500,
-            "water": 3,
-            "caffeine": 2,
-            "sleep_time": 10,
-            "calories": 2200,
-            "created_at": "2025-11-14 15:00:00"
-        },
-        {
-            "id": null,
-            "user_id": 1,
-            "steps": 554,
-            "water": 3,
-            "caffeine": 5,
-            "sleep_time": 5,
-            "calories": 1000,
-            "created_at": "2025-11-15 15:00:23"
-        }
-    ]
-
-};
 prepareData(resp.data); 
 function prepareData(data){ 
     let water = []; 
@@ -88,4 +63,4 @@ function eachChart(canvasId, data, created_at, color){
     }
   }
 });
-}
+}*/

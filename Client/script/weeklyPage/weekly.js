@@ -1,24 +1,16 @@
 window.onload = function() {
     checkAuth();
     getWeeklySummary();
+
 };
 async function getWeeklySummary(){
      try{
-        console.log(schema);
         const res = await axios.post(`${BASE_URL}/api/weeklySummary.php`,{
             'email': localStorage.getItem('email')
         })
-        let response = res.data;
-        if(!Array.isArray(response)){ 
-            if(isJSON(response)){
-                response = JSON.parse(response); 
-            }
-            else{
-                console.error("Response is not valid JSON");
-                return;
-            }
-        }
-        messeage(response.message);
+        const response = res;
+        console.log(response);
+        message(response.message);
         advices(response.advices);
     } 
     catch(error){

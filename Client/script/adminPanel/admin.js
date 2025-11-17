@@ -1,9 +1,9 @@
 async function getUsers(){
     try{
-        const users = await axios.get(`${BASE_URL}/users`);
-        if(users){
-            console.log("get all users");
-            displayUsers(users.data);
+        const resp = await axios.get(`${BASE_URL}/users`);
+        if(resp){
+            const users = resp.data.data;
+            displayUsers(users);
         }
     }
     catch(error){
@@ -12,17 +12,20 @@ async function getUsers(){
     }
 }
 function displayUsers(users){
-    const usersList = document.getElementById("users-list");
+   // console.log(users);
+    const usersList = document.getElementById("users-list-container");
     const title = document.createElement("h2");
     title.innerHTML="Users";
     usersList.appendChild(title);
-    users.forEach(user => {
-      const current = document.createElement("div");
-      current.className = "users-list";
-      current.innerHTML=`
-            <span>${user.username}</span>
+    users.forEach(user => {      
+        console.log(user.created_at); 
+        const current = document.createElement("div");
+        current.className = "users-list";
+        current.innerHTML=`
+            <span class="username">${user.username}</span>
+            <span>${user.email}</span>
             <div id="info-${user.id}" class="user-info-container"></div>
-            <a href="" class="user-info" data-id="${user.id}" data-email="${user.email}"><i class="fas fa-info-circle"></i></a>
+            <a href="" class="user-info" data-id="${user.id}" data-email="${user.email}"><i class="fa-solid fa-circle-info"></i></a>
             <a href="" class="delete-user" data-id="${user.id}"><i class="fa-solid fa-trash"></i></a>
       `;
       usersList.appendChild(current);
@@ -49,7 +52,7 @@ async function getUserInfo(userEmail, userId){
         const response = await axios.get(`${BASE_URL}/user`,{ 
             params:{ email: userEmail }
         });
-        const info = response.data;
+        const info = response.data.data;
         displayUserInfo(userId, info)
     }
     catch(error){
@@ -57,6 +60,7 @@ async function getUserInfo(userEmail, userId){
     }
 }
 function displayUserInfo(userId, info){
+    console.log(info);
     const infoDiv = document.getElementById(`info-${userId}`);
     infoDiv.innerHTML = `
         <p>Email: ${info.email}</p>
@@ -65,6 +69,7 @@ function displayUserInfo(userId, info){
         <p>Total Entries:${info.total_entries}</p>
         <p>Last Entry:${info.last_entry}</p>
     `;
+    infoDiv.style.display = "block";
 }
 function checkDeleteBtn(){
     document.querySelectorAll(".delete-user").forEach(dlt => {

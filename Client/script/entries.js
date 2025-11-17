@@ -39,6 +39,7 @@ async function addNewEntry(data){
         if(response){
             //////window.location.href="./daily.html";
             callAiResponse(data);
+            console.log(data);
             return response.data;
         }
     }
@@ -55,5 +56,4 @@ async function callAiResponse(data){
     catch(error){
         console.error(error);
     }
-
 }

@@ -13,21 +13,21 @@
                 <h1>Admin Panel</h1>
             </div>
         </div>
-        <div class="users-list-container">
-            <div id="users-list">
+        <div class="admin-container">
+                <div id="users-list-container">
+                </div>
+    
+            <div class="chart-Container">
+                <canvas id="myChart" style="width:100%;max-width:400px;"></canvas>
             </div>
         </div>
-        <div class="chart-Container">
-            <h2>Top 5 habits</h2>
-            <canvas id="myChart" style="width:100%;max-width:400px;"></canvas>
-        </div>
 
+        <script src="./script/axios/axios.min.js"></script>
         <script src="./script/constants.js"></script>
         <script src="./script/authentication.js"></script>
         <script src="./script/adminPanel/autho.js"></script>
         <script src="./script/adminPanel/admin.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
         <script src="./script/adminPanel/pieChart.js"></script>
-        <script src="./script/axios/axios.min.js"></script>
     </body>
 </html>

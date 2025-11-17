@@ -74,12 +74,6 @@
             exit;
         }
     }
-    echo ResponseService::response(200, $entriesJson);
-
-    echo ResponseService::response(200, $entries);
-
-
-
-
+    echo ResponseService::response(200, $resultData);
 
 ?>

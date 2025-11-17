@@ -24,7 +24,7 @@
             $sql = "UPDATE users SET last_entry = ? WHERE id = ?
                     total_entries = total_entries + 1";
             $query = $connection->prepare($sql);
-            $query->bind_param("si", $data["entry_text"], $data["user_id"]);
+            $query->bind_param("si", $data["userInput"], $data["user_id"]);
             $query->execute();
 
             return $newEntry;
