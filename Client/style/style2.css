@@ -132,7 +132,7 @@ button:hover, .submit:hover{
        bottom: -20%; 
        text-align: center;
     }
-    .habit-list{
+    .habit-list, .users-list{
         width: 100% !important;
         margin-top: 0;
     } 
@@ -199,7 +199,7 @@ button:hover, .submit:hover{
 .input-edit{
     border: 2px solid #DFFBD1 !important;
 }
-.habit-list{
+.habit-list, .users-list{
     position: relative;
     display: flex;
     margin: 10px;
@@ -211,19 +211,20 @@ button:hover, .submit:hover{
     background-color: #1B4904;
 }
 
-.habit-list a, .habit-list span, .habit-list i{
+.habit-list a, .habit-list span, .habit-list i,
+.users-list a, .users-list span, .useres-list i{
     transform: translateY(25%);
     font-size: 20px;
     color: #DFFBD1;
     margin-right: 20px;
 }
-.habit-list input{
+.habit-list input, .useres-list input{
     border: 1px solid #1B4904;
     background-color: #1B4904;
     font-size: 20px;
     color: #DFFBD1;
 }
-.habit-list span{
+.habit-list span, .useres-list span{
     font-size: 30px;
     margin-left: 20px;
 }
@@ -267,7 +268,7 @@ button:hover, .submit:hover{
 #habit_name{
     width: 40%;
 }
-.habit-list-container{
+.habit-list-container, .useres-list-container{
     margin-top: 400px;
 }
 

@@ -14,7 +14,7 @@ async function addNewHabit(new_habit){
 
 async function getHabits(){
     try{
-        const habits = axios.get(`${BASE_URL}/habits`,{
+        const habits = await axios.get(`${BASE_URL}/habits`,{
             params: { email: localStorage.getItem('email') }
          })
         if(habits){

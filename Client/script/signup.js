@@ -55,6 +55,7 @@ btn.addEventListener("click", function (e) {
     const signup =createNewUser(data);
     if(signup)
         localStorage.setItem('email', email);
+        localStorage.setItem('user_type', 2);
 });
 async function createNewUser(data){
     try{
