@@ -19,7 +19,14 @@
         public static function save(mysqli $connection, array $data){
             $entry = new Entry($data);
             $newEntry = $entry->save($connection, "id");
-            
+
+            //to save in user db his last entry (it is used in admin panel)
+            $sql = "UPDATE users SET last_entry = ? WHERE id = ?
+                    total_entries = total_entries + 1";
+            $query = $connection->prepare($sql);
+            $query->bind_param("si", $data["entry_text"], $data["user_id"]);
+            $query->execute();
+
             return $newEntry;
         }
     }

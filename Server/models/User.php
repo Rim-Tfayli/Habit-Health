@@ -11,6 +11,8 @@ class User extends Model {
     protected string $gender;
     protected int $user_type_id;
     protected ?string $created_at = null;
+    protected ?string $last_entry = null;
+    protected int $total_entries = 0;
 
     protected static string $table = "users";
 
@@ -22,6 +24,8 @@ class User extends Model {
         $this->gender = $data["gender"];
         $this->user_type_id = (int)$data["user_type_id"];
         $this->created_at = (int)$data["created_at"];
+        $this->last_entry = isset($data["last_entry"]) ? $data["last_entry"] : null;
+        $this->total_entries = isset($data["total_entries"]) ? (int)$data["total_entries"] : 0;
     }
 
     public function getID(){
@@ -71,7 +75,9 @@ class User extends Model {
             "email" => $this->email,
             "password" => $this->password,
             "gender" => $this->gender,
-            "created_at" => $this->created_at
+            "created_at" => $this->created_at,
+            "last_entry" => $this->last_entry,
+            "total_entries" => $this->total_entries
         ];
     }
 
