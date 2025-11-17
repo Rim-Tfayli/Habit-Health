@@ -286,3 +286,6 @@ button:hover, .submit:hover{
 .hide{
     display: none;
 }
+#myChart{
+    height:400px !important;
+}

@@ -1,4 +1,4 @@
-/*window.onload = function() {
+window.onload = function() {
     checkAuthorization();
 };
 function checkAuthorization(){
@@ -14,4 +14,4 @@ function redirectToHome(){
     alert("You are not an admin");
     window.location.href = "./daily.html";
     return false;
-}*/
+}
