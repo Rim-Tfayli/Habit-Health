@@ -23,7 +23,7 @@ function checkDeleteBtn(){
     document.querySelectorAll(".delete-habit").forEach(dlt => {
         dlt.addEventListener("click", function(e){
         e.preventDefault();
-        const habitId = dlt.id;
+        const habitId = dlt.dataset.id;;
         deleteHabit(habitId);
     });
   });
@@ -34,7 +34,7 @@ function checkEditBtn(habitsList){
     document.querySelectorAll(".edit-habit").forEach(edit => {
         edit.addEventListener("click", function(e){
         e.preventDefault();
-        const habitId = edit.id;
+        const habitId = edit.dataset.id;;
         const input = document.getElementById(habitId);
         input.removeAttribute("readonly");
         input.classList.add("input-edit");

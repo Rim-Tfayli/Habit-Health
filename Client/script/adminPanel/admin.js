@@ -15,14 +15,15 @@ function displayUsers(users){
     const usersList = document.getElementById("users-list");
     const title = document.createElement("h2");
     title.innerHTML="Users";
+    usersList.appendChild(title);
     users.forEach(user => {
       const current = document.createElement("div");
       current.className = "users-list";
       current.innerHTML=`
             <span>${user.username}</span>
             <div id="info-${user.id}" class="user-info-container"></div>
-            <a href="" class="user-info" id="${user.id}"><i class="fas fa-info-circle"></i></a>
-            <a href="" class="delete-user" id="${user.id}"><i class="fa-solid fa-trash"></i></a>
+            <a href="" class="user-info" data-id="${user.id}" data-email="${user.email}"><i class="fas fa-info-circle"></i></a>
+            <a href="" class="delete-user" data-id="${user.id}"><i class="fa-solid fa-trash"></i></a>
       `;
       usersList.appendChild(current);
     });
@@ -36,16 +37,17 @@ async function checkInfoBtn() {
     infoBtns.forEach(btn => {
         btn.addEventListener("click", async (e) => {
             e.preventDefault();
-            const userId = btn.id;
-            await getUserInfo(userId);
+            const userEmail = btn.dataset.email;
+            const userId = btn.dataset.id
+            await getUserInfo(userEmail, userId);
         });
     });
 }
 
-async function getUserInfo(userId){
+async function getUserInfo(userEmail, userId){
     try{
-        const response = await axios.get(`${BASE_URL}/users/info`,{ 
-            params:{ id: userId }
+        const response = await axios.get(`${BASE_URL}/user`,{ 
+            params:{ email: userEmail }
         });
         const info = response.data;
         displayUserInfo(userId, info)
@@ -60,24 +62,25 @@ function displayUserInfo(userId, info){
         <p>Email: ${info.email}</p>
         <p>Gender: ${info.gender}</p>
         <p>Date Joined: ${info.created_at}</p>
-        <p>Last Entry:"to be implemented bl backend"</p>
+        <p>Total Entries:${info.total_entries}</p>
+        <p>Last Entry:${info.last_entry}</p>
     `;
 }
 function checkDeleteBtn(){
     document.querySelectorAll(".delete-user").forEach(dlt => {
         dlt.addEventListener("click", function(e){
             e.preventDefault();
-            const userId = dlt.id;
+            const userId = btn.dataset.id
             deleteUser(userId);
     });
   });
 }
 async function deleteUser(userId){
     try{
-        const user =  await axios.delete(`${BASE_URL}/user/delete`,{
+        const deleted =  await axios.delete(`${BASE_URL}/user/delete`,{
             params: { id: userId }
         })
-        if(user.status===200){
+        if(deleted.status===200){
             window.location.reload();
         }
     }
