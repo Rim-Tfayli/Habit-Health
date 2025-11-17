@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="./style/header.css">
+        <link rel="stylesheet" href="./style/style2.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+    <body>
+        <div class="header">
+            <img src="./images/logo.png">
+            <div class="admin_nav">               
+                <h1>Admin Panel</h1>
+            </div>
+        </div>
+        <div class="users-list-container">
+            <div id="users-list">
+            </div>
+        </div>
+        <div class="chart-Container">
+            <h2>Top 5 habits</h2>
+            <canvas id="myChart" style="width:100%;max-width:400px;"></canvas>
+        </div>
+
+        <script src="./script/constants.js"></script>
+        <script src="./script/authentication.js"></script>
+        <script src="./script/adminPanel/autho.js"></script>
+        <script src="./script/adminPanel/admin.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
+        <script src="./script/adminPanel/pieChart.js"></script>
+        <script src="./script/axios/axios.min.js"></script>
+    </body>
+</html>

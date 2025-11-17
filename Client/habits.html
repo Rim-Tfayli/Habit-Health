@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="./style/header.css">
+        <link rel="stylesheet" href="./style/style2.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+    <body>
+        <div class="header">
+            <img src="./images/logo.png">
+            <div class="nav">               
+                <ul>
+                    <li><a class="active" href="./habits.html">Habits</a></li>
+                    <li><a href="./entries.html">Entries</a></li>
+                    <li><a href="./daily.html">Daily</a></li>
+                    <li><a href="./weekly.html">Weekly</a></li>
+                </ul>            
+            </div>
+        </div>  
+        
+        <div class="add_new_container">
+            <h3>Add Your Habit</h3>      
+            <div class="add_new">
+                <input type="text" id="habit_name" class="new_habit" placeholder="name: eg. water, steps..">
+                <input type="text" id="habit_goal" class="new_habit"  placeholder="goal: eg. 3L, 10 000..">
+                <a id="add_new">Add</a>
+            </div>
+                <div id="show_habits_btn">
+                <button id="show_habits">Show your habits list</button>
+                </div>
+        </div>
+
+        <div class="habit-list-container">
+            <div id="habits-list">
+            </div>
+        </div>   
+
+        <script src="./script/authentication.js"></script>
+        <script src="./script/axios/axios.min.js"></script>
+        <script src="./script/constants.js"></script>
+        <script src="./script//habits/checkBtns.js"></script>
+        <script src="./script/habits/displayHabits.js"></script>
+        <script src="./script/habits/habits_api_call.js"></script>
+
+    </body>
+</html>

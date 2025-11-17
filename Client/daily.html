@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="./style/header.css">
+        <link rel="stylesheet" href="./style/style2.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    </head>
+    <body>
+        <div class="header">
+            <img src="./images/logo.png">
+            <div class="nav">               
+                <ul>
+                    <li><a href="./habits.html">Habits</a></li>
+                    <li><a  href="./entries.html">Entries</a></li>
+                    <li><a class="active" href="./daily.html">Daily</a></li>
+                    <li><a href="./weekly.html">Weekly</a></li>
+                </ul>            
+            </div>
+        </div>
+        <div class="daily">
+            <h2>Daily summary</h2>
+            
+            <div id="feedback"></div>
+            <div class="container">
+                <div id="summary" class="box"></div>
+                <div id="gaps" class="box"></div>
+            </div>
+        </div>   
+        
+        <script src="./script/authentication.js"></script>
+        <script src="./script/axios/axios.min.js"></script>
+        <script src="./script/constants.js"></script>
+        <script src="./script/daily.js"></script>
+    </body>
+</html>

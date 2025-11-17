@@ -1,0 +1,91 @@
+async function getUsers(){
+    try{
+        const users = await axios.get(`${BASE_URL}/users`);
+        if(users){
+            console.log("get all users");
+            displayUsers(users.data);
+        }
+    }
+    catch(error){
+        console.error(error);
+        return {status: 500, data: 'connection failed'};
+    }
+}
+function displayUsers(users){
+    const usersList = document.getElementById("users-list");
+    const title = document.createElement("h2");
+    title.innerHTML="Users";
+    usersList.appendChild(title);
+    users.forEach(user => {
+      const current = document.createElement("div");
+      current.className = "users-list";
+      current.innerHTML=`
+            <span>${user.username}</span>
+            <div id="info-${user.id}" class="user-info-container"></div>
+            <a href="" class="user-info" data-id="${user.id}" data-email="${user.email}"><i class="fas fa-info-circle"></i></a>
+            <a href="" class="delete-user" data-id="${user.id}"><i class="fa-solid fa-trash"></i></a>
+      `;
+      usersList.appendChild(current);
+    });
+    checkInfoBtn();
+    checkDeleteBtn();
+    checkEditBtn(usersList);
+}
+
+async function checkInfoBtn() {
+    const infoBtns = document.querySelectorAll(".user-info");
+    infoBtns.forEach(btn => {
+        btn.addEventListener("click", async (e) => {
+            e.preventDefault();
+            const userEmail = btn.dataset.email;
+            const userId = btn.dataset.id
+            await getUserInfo(userEmail, userId);
+        });
+    });
+}
+
+async function getUserInfo(userEmail, userId){
+    try{
+        const response = await axios.get(`${BASE_URL}/user`,{ 
+            params:{ email: userEmail }
+        });
+        const info = response.data;
+        displayUserInfo(userId, info)
+    }
+    catch(error){
+        console.error(error);
+    }
+}
+function displayUserInfo(userId, info){
+    const infoDiv = document.getElementById(`info-${userId}`);
+    infoDiv.innerHTML = `
+        <p>Email: ${info.email}</p>
+        <p>Gender: ${info.gender}</p>
+        <p>Date Joined: ${info.created_at}</p>
+        <p>Total Entries:${info.total_entries}</p>
+        <p>Last Entry:${info.last_entry}</p>
+    `;
+}
+function checkDeleteBtn(){
+    document.querySelectorAll(".delete-user").forEach(dlt => {
+        dlt.addEventListener("click", function(e){
+            e.preventDefault();
+            const userId = btn.dataset.id
+            deleteUser(userId);
+    });
+  });
+}
+async function deleteUser(userId){
+    try{
+        const deleted =  await axios.delete(`${BASE_URL}/user/delete`,{
+            params: { id: userId }
+        })
+        if(deleted.status===200){
+            window.location.reload();
+        }
+    }
+    catch(error){
+        console.error(error);
+        return {status: 500, data: 'connection failed'};
+    }
+}
