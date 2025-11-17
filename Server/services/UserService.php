@@ -14,8 +14,8 @@
             }
                 return $usersArray;
         }     
-        public static function deleteUser(mysqli $connection, string $email){
-            return User::delete($connection, $email, "email");
+        public static function deleteUser(mysqli $connection, string $id){
+            return User::delete($connection, $id, "id");
         }
         public static function save(mysqli $connection, array $data){
             $user = new User($data);

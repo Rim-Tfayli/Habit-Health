@@ -33,13 +33,13 @@ class UserController {
 
     function deleteUser(){
         global $connection;
-        if(isset($_GET["email"])){
-            $email = $_GET["email"];
+        if(isset($_GET["id"])){
+            $id = $_GET["id"];
         }else{
             echo ResponseService::response(500, "Email is missing");
             return;
         }
-        UserService::deleteUser($connection, $email);
+        UserService::deleteUser($connection, $id);
         echo ResponseService::response(200, "User Deleted");
     }
 
