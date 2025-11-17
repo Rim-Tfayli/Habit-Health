@@ -70,14 +70,20 @@ abstract class Model{
     public function createNew(mysqli $connection, array $properties){
         unset($properties[static::$primary_key]);
         $in = str_repeat('?,', count($properties)-1) . '?';
-        $strings = str_repeat('s', count($properties));
+        $types = '';
+        foreach($properties as $value){
+            $types .= is_int($value) ? 'i' : 's';
+        }
+        //ex: if properties: {username:'nabiha', email:'x.gmail.com', gender:'female'..}
+        //types: sss
+        //coulmns: (username, email, gender)/ putting , between the keys
         $columns = implode(", ", array_keys($properties));
         $sql = sprintf("INSERT INTO %s (%s) VALUES (%s)",
                        static::$table,
                        $columns,
                        $in);      
-        $query  = $connection->prepare($sql); //prepare
-        $query->bind_param($strings, ...array_values($properties)); //bind array at once
+        $query  = $connection->prepare($sql);
+        $query->bind_param($types, ...array_values($properties));
         return  $query->execute();
     }
     public function update(mysqli $connection,  string $primary_key, array $properties){      
@@ -87,27 +93,38 @@ abstract class Model{
             unset($properties["id"]);
         $types = str_repeat('s', count($properties)) . (is_int($primary_value) ? 'i' : 's');
         $new = implode(' = ?, ', array_keys($properties)) . ' = ?';
+        //we are putting between the keys " = ? "
+        //this will be use inside the update fct bcz update fct needd: sett (username = ?, email = ?, gender=?.....)
         $sql = sprintf("UPDATE %s SET %s WHERE %s = ?",
                        static::$table,
                        $new,
                        $primary_key);      
-        $query  = $connection->prepare($sql); //prepare
+        $query  = $connection->prepare($sql);
         $values = array_values($properties);
         $values[] = $primary_value;
-        $query->bind_param($types, ...$values); //bind array at once
+        $query->bind_param($types, ...$values);
         return $query->execute();
     }
 
     //this function will be used for summaries
     public static function findByDate(mysqli $connection, string $start, string $end, string $column = "", $value = null){
-        $sql = sprintf("SELECT * FROM %s WHERE  %s = ? AND %s BETWEEN ? AND ? ORDER BY created_at",
-                    static::$table,
-                    $column,
-                    "created_at",
-                    );
-
-        $query = $connection->prepare($sql);
-        $query->bind_param("iss", $value, $start, $end);
+        if($value !== null){
+            $sql = sprintf(
+                "SELECT * FROM %s WHERE %s = ? AND created_at BETWEEN ? AND ? ORDER BY created_at",
+                static::$table,
+                $column
+            );
+            $query = $connection->prepare($sql);
+            $query->bind_param("sss", $value, $start, $end);
+        } 
+        else{
+            $sql = sprintf(
+                "SELECT * FROM %s WHERE created_at BETWEEN ? AND ? ORDER BY created_at",
+                static::$table
+            );
+            $query = $connection->prepare($sql);
+            $query->bind_param("ss", $start, $end);
+        }
         $query->execute();
 
         $data = $query->get_result();
@@ -117,9 +134,6 @@ abstract class Model{
             
         }
         return $rows;
-
     }
-
-
 }
 ?>

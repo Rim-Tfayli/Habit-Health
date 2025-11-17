@@ -2,7 +2,7 @@
     require_once("../connection/connection.php");
     require_once("../services/ResponseService.php");
     require_once("../services/EntryService.php");
-    require_once("../services/AiResponseService.php");
+    require_once("../services/AiResponeService.php");
     include_once("prompts.php");
 
 
@@ -12,16 +12,16 @@
         echo ResponseService::response(400, "Some info are missing");
         exit;
     }
-    $entry_id = $data["entry_id"];
-    $user_id = $data['user_id'];
+    /*$entry_id = $data["entry_id"];
+    $user_id = $data['user_id'];*/
     $user_input = $data['user_input'];
 
-    $newEntry = EntryService::save($connection, [
+   /* $newEntry = EntryService::save($connection, [
         "id" => $entry_id,
         "user_id" => $user_id,
         "entry_text" => $user_input,
-    ]);
-    $apiKey = "";
+    ]);*/
+    $apiKey = "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";
 
     $prompt = "$prompt1 \"$user_input\"";
     

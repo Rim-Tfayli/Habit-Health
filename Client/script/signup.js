@@ -1,5 +1,5 @@
 const btn = document.getElementById('submit-signup');
-btn.addEventListener("click", function (e) {
+btn.addEventListener("click", async function (e) {
     e.preventDefault();
 
     const username = document.getElementById('username').value.trim();
@@ -8,12 +8,51 @@ btn.addEventListener("click", function (e) {
     const confirm = document.getElementById('confirm').value;
     const gender = document.getElementById('gender').value;
     
+
+    let valid = true;
+
+    valid = ValidateForm(username, email, password, confirm, gender);
+
+    if (!valid) return;
+
+    const data = {
+        username: username,
+        email: email,
+        password: password,
+        gender: gender
+    };
+    console.log(data);
+    const signup = await createNewUser(data);
+    if(signup)
+        localStorage.setItem('email', email);
+        localStorage.setItem('user_type', 2);
+});
+async function createNewUser(data){
+    try{
+        const response = await axios.post(`${BASE_URL}/user/insert`, data[0]);
+        console.log(response);
+        if(response.status===200){
+           // window.location.href="./habits.html";
+            return response.data;
+        }
+    } 
+    catch(error){
+        console.error(error);
+        return { status: 500, data: 'connection failed' };
+    }
+}
+function isValidEmail(email){
+    return email.match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    ); //from stack overflow
+}
+function ValidateForm(username, email, password, confirm, gender){
     const usernameError = document.getElementById('usernam-error');
     const emailError = document.getElementById('email-error');
     const passwordError = document.getElementById('password-error');
     const confirmError = document.getElementById('confirm-error');
     const genderError = document.getElementById('gender-error');
-
+    
     usernameError.textContent = '';
     emailError.textContent = '';
     passwordError.textContent = '';
@@ -21,7 +60,6 @@ btn.addEventListener("click", function (e) {
     genderError.textContent = '';
 
     let valid = true;
-
     if(username === ''){
         usernameError.textContent = 'Username is required';
         valid = false;
@@ -42,34 +80,5 @@ btn.addEventListener("click", function (e) {
         genderError.textContent = 'Please select your gender';
         valid = false;
     }
-
-    if (!valid) return;
-
-    const data = {
-        username: username,
-        email: email,
-        password: password,
-        gender: gender
-    };
-    console.log(data);
-    const signup =createNewUser(data);
-    if(signup)
-        localStorage.setItem('email', email);
-        localStorage.setItem('user_type', 2);
-});
-async function createNewUser(data){
-    try{
-        const response = await axios.post(`${BASE_URL}/user/insert`, data);
-        window.location.href="/habits.html";
-        return response.data;
-    } 
-    catch(error){
-        console.error(error);
-        return { status: 500, data: 'connection failed' };
-    }
-}
-function isValidEmail(email){
-    return email.match(
-        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    ); //from stack overflow
+    return valid;
 }

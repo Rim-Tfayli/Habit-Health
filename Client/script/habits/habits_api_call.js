@@ -1,8 +1,8 @@
 
 async function addNewHabit(new_habit){
     try{
-        const added = await axios.get(`${BASE_URL}/habit/inser`,new_habit);
-        if(added){
+        const added = await axios.post(`${BASE_URL}/habit/insert`,new_habit);
+        if(added.status===200){
             console.log("new habit added");
         }
     }
@@ -14,12 +14,12 @@ async function addNewHabit(new_habit){
 
 async function getHabits(){
     try{
-        const habits = await axios.get(`${BASE_URL}/habits`,{
-            params: { email: localStorage.getItem('email') }
+        const habits = await axios.post(`${BASE_URL}/habits`, {
+            email: localStorage.getItem("email")
          })
-        if(habits){
+        if(habits.status===200){
             console.log("habits are ready");
-            displayHabits(habits.data);
+            displayHabits(habits.data.data);
         }
     }
     catch(error){
@@ -33,9 +33,9 @@ async function getHabits(){
 //the habitService will call update method instead of create new
 async function updateHabits(edited_habits){
     try{
-        const response = await axios.post(`${BASE_URL}/habit/insert`, edited_habits);
+        //console.log(edited_habits);
+        const response = await axios.post(`${BASE_URL}/habit/insert`, edited_habits[0]);
         if(response){
-            window.location.href="/habits.html";
             return response.data;
         }
     }

@@ -1,7 +1,6 @@
 const btn = document.getElementById('submit-login');
 btn.addEventListener("click", function (e) {
     e.preventDefault();
-
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
     
@@ -32,12 +31,17 @@ async function login(email, password){
             email: email,
             password: password
         });
-        if(response){
+        //console.log(response);
+        if(response.data.status===200){
+            //console.log(response.data);
             const user = response.data.data;
             localStorage.setItem('email', email);
             localStorage.setItem('user_type', user.user_type_id);
-            window.location.href="/habits.html";
+            window.location.href="./habits.html";
             return response.data;
+        }
+        else{
+            alert("invalid Username Or Password");
         }
     }
     catch(error){

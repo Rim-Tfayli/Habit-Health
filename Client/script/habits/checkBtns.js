@@ -1,12 +1,13 @@
 const add_new_btn = document.getElementById("add_new");
-const new_habit_name = document.getElementById("habit_name");
-const new_habit_goal = document.getElementById("new_habit_goal");
+
 add_new_btn.addEventListener("click", function(e){
         e.preventDefault();
+        const new_habit_name = document.getElementById("habit_name").value;
+        const new_habit_goal = document.getElementById("habit_goal").value;
         const new_habit = {
             email: localStorage.getItem("email"),
-            name: new_habit.name,
-            goal: new_habit.value
+            name: new_habit_name,
+            goal: new_habit_goal
         };
         addNewHabit(new_habit);  
 });
@@ -26,7 +27,7 @@ function checkDeleteBtn(){
         const habitId = dlt.dataset.id;;
         deleteHabit(habitId);
     });
-  });
+});
 }
 
 
@@ -44,7 +45,7 @@ function checkEditBtn(habitsList){
         habitsList.appendChild(submit);
         checkSubmitBtn(submit);
     });
-  });
+});
 }
 //function to prepare every edited habit to be sent to the server
 function checkSubmitBtn(submit){

@@ -9,7 +9,7 @@ class User extends Model {
     protected string $email;
     protected string $password;
     protected string $gender;
-    protected int $user_type_id;
+    protected ?int $user_type_id = null;
     protected ?string $created_at = null;
     protected ?string $last_entry = null;
     protected int $total_entries = 0;
@@ -17,15 +17,16 @@ class User extends Model {
     protected static string $table = "users";
 
     public function __construct(array $data){
-        $this->id = $data["id"];
+        $this->id = $data["id"] ?? null;
         $this->username = $data["username"];
         $this->email = $data["email"];
         $this->password = $data["password"];
         $this->gender = $data["gender"];
-        $this->user_type_id = (int)$data["user_type_id"];
-        $this->created_at = (int)$data["created_at"];
-        $this->last_entry = isset($data["last_entry"]) ? $data["last_entry"] : null;
-        $this->total_entries = isset($data["total_entries"]) ? (int)$data["total_entries"] : 0;
+        $this->user_type_id = $data["user_type_id"] ?? null;
+
+        $this->created_at = $data["created_at"] ?? null;
+        $this->last_entry = $data["last_entry"] ?? null;
+        $this->total_entries = $data["total_entries"] ?? 0;
     }
 
     public function getID(){

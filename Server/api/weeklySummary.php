@@ -27,9 +27,8 @@
     $enddate = date("Y-m-d 23:59:59");
     $entries = Entry::findByDate($connection, $startdate, $enddate, "user_id", $user['id']);
 
-    $entriesJson = json_encode($entries, JSON_PRETTY_PRINT);
-  /*  
-    $apiKey = "";
+    $entriesJson = json_encode($entries, JSON_PRETTY_PRINT);  
+    $apiKey = "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";
 
     $prompt = " $prompt3  \n\"$entriesJson\"";
 
@@ -74,7 +73,7 @@
             echo ResponseService::response(500, "Reuired keys are missing");
             exit;
         }
-    }*/
+    }
     echo ResponseService::response(200, $entriesJson);
 
     echo ResponseService::response(200, $entries);

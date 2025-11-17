@@ -30,7 +30,7 @@
     ];
     $habitsEntriesJson = json_encode($habits_entries, JSON_PRETTY_PRINT);
 
-    $apiKey = "";
+    $apiKey = "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";
 
     $prompt = " $prompt2  \n\"$habitsEntriesJson\"";
 

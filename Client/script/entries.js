@@ -1,5 +1,6 @@
 window.onload = function() {
     checkAuth();
+    console.log("hiiiiiiiiiiiiiiiiii")
 };
 const submit = document.getElementById("submit-entry");
 submit.addEventListener("click", function (e) {
@@ -36,7 +37,8 @@ async function addNewEntry(data){
     try{
         const response = await axios.post(`${BASE_URL}/entry/insert`, data);
         if(response){
-            window.location.href="/.html";
+            //////window.location.href="./daily.html";
+            callAiResponse(data);
             return response.data;
         }
     }
@@ -44,4 +46,14 @@ async function addNewEntry(data){
         console.error(error);
         return {status: 500, data: 'connection failed'};
     }
+}
+async function callAiResponse(data){
+    try{
+        const response = await axios.post(`${BASE_URL}/api/ai.php`, data);
+        console.log(response.data);
+    }
+    catch(error){
+        console.error(error);
+    }
+
 }
