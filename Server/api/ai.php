@@ -2,7 +2,7 @@
     require_once("../connection/connection.php");
     require_once("../services/ResponseService.php");
     require_once("../services/EntryService.php");
-    require_once("../services/AiResponeService.php");
+    require_once("../services/AiResponseService.php");
     include_once("prompts.php");
 
 

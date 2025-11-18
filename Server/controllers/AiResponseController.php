@@ -2,7 +2,7 @@
 require_once(__DIR__ . "/../connection/connection.php");
 require_once(__DIR__ . "/../services/ResponseService.php");
 require_once(__DIR__ . "/../models/AiResponse.php");
-require_once(__DIR__ . "/../services/AiResponeService.php");
+require_once(__DIR__ . "/../services/AiResponseService.php");
 
 
 class AiResponseController{

@@ -3,13 +3,12 @@ include_once("Model.php");
 
 class User extends Model {
 
-    //I may add height and weight (hsab l waet)
     protected ?int $id = null;
     protected string $username;
     protected string $email;
     protected string $password;
     protected string $gender;
-    protected ?int $user_type_id = null;
+    protected ?int $user_type_id = 2;
     protected ?string $created_at = null;
     protected ?string $last_entry = null;
     protected int $total_entries = 0;
@@ -24,7 +23,7 @@ class User extends Model {
         $this->gender = $data["gender"];
         $this->user_type_id = $data["user_type_id"] ?? null;
 
-        $this->created_at = $data["created_at"];
+        $this->created_at = $data["created_at"] ?? null;
         $this->last_entry = $data["last_entry"] ?? null;
         $this->total_entries = $data["total_entries"] ?? 0;
     }
@@ -67,7 +66,7 @@ class User extends Model {
 
     public function __toString(){
         return $this->id . " | " . $this->username . " | " . $this->password . " | " .
-         $this->gender. " | " . $this->last_entry . " | " . $this->last_entry . " | " . $this->created_at;
+         $this->gender. " | " . $this->last_entry . " | " . $this->total_entries . " | " . $this->created_at;
     }
     
     public function toArray(){
@@ -79,10 +78,9 @@ class User extends Model {
             "gender" => $this->gender,
             "created_at" => $this->created_at,
             "last_entry" => $this->last_entry,
-            "total_entries" => $this->total_entries
+            "total_entries" => $this->total_entries,
+            "user_type" => $this->user_type_id
         ];
     }
-
 }
-
 ?>
