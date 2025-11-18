@@ -1,0 +1,31 @@
+.input-edit, .users-list{
+    border: 3px solid #1B4904 !important;
+    background-color: #DFFBD1 !important;
+    color: #1B4904 !important;
+}
+.habit-list, .users-list{
+    position: relative;
+    display: flex;
+    margin: 10px;
+    height: 50px;
+    width: 900px;
+    border-radius: 10px;
+}
+
+.habit-list a, .habit-list span, .habit-list i,
+.users-list a, .users-list span, .users-list i{
+    transform: translateY(25%);
+    font-size: 20px;
+    color: #1B4904;
+    margin-right: 20px;
+}
+.habit-list input, .users-list input{
+    border: 1px solid #1B4904;
+    background-color: #1B4904;
+    font-size: 20px;
+    color: #DFFBD1;
+}
+.habit-list span, .users-list span{
+    font-size: 30px;
+    margin-left: 20px;
+}
