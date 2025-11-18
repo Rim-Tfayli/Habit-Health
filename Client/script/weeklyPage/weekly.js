@@ -1,7 +1,6 @@
 window.onload = function() {
     checkAuth();
     getWeeklySummary();
-
 };
 async function getWeeklySummary(){
      try{
@@ -34,6 +33,5 @@ function advices(adv){
 const btn = document.getElementById("showCharts");
 btn.addEventListener("click", function(e){
     e.preventDefault();
-    document.getElementById("weekly").classList.add("hide");
     displayCharts();
 });

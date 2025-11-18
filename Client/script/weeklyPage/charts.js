@@ -1,18 +1,20 @@
+
+
 async function displayCharts() {
     try{
-        const data = await axios.post(`${BASE_URL}/aiResponse`,{
+        const resp = await axios.post(`${BASE_URL}/aiResponse`,{
             email: localStorage.getItem('email')
         })
-        if(data){
-            console.log(data)
-            prepareData(data.data);
+        if(resp.data){
+            const data = resp.data
+            console.log(data.data);
+            //prepareData(data.data);
         }
    }
     catch(error){
         console.error("Error", error);
     }
 }
-prepareData(resp.data); 
 function prepareData(data){ 
     let water = []; 
     let steps = []; 

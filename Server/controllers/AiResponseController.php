@@ -9,8 +9,9 @@ class AiResponseController{
     //to display summary for the user
     function getWeeklyAiResponse(){
         global $connection;
-        if(isset($_GET['email'])){
-            $user_email = $_GET['email']; 
+        $data = json_decode(file_get_contents("php://input"), true);
+        if(isset($data["email"])){
+            $user_email = $data['email']; 
             $ai_responses = AiResponseService::findAiResponsesByUser($connection, $user_email);
             echo ResponseService::response(200, $ai_responses);
         } else {
