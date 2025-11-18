@@ -21,7 +21,7 @@ class User extends Model {
         $this->email = $data["email"];
         $this->password = $data["password"];
         $this->gender = $data["gender"];
-        $this->user_type_id = $data["user_type_id"] ?? null;
+        $this->user_type_id = $data["user_type_id"] ?? 2;
 
         $this->created_at = $data["created_at"] ?? null;
         $this->last_entry = $data["last_entry"] ?? null;
