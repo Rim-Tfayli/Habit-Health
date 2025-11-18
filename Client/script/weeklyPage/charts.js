@@ -1,10 +1,12 @@
-/*async function displayCharts() {
+
+
+async function displayCharts() {
     try{
         const data = await axios.post(`${BASE_URL}/aiResponse`,{
             email: localStorage.getItem('email')
         })
         if(data){
-            console.log(data)
+            console.log(data.data);
             prepareData(data.data);
         }
    }
@@ -63,4 +65,4 @@ function eachChart(canvasId, data, created_at, color){
     }
   }
 });
-}*/
+}

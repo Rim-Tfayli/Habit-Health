@@ -1,0 +1,58 @@
+.weekly li{
+    font-size: 20px;
+    padding: 5px;
+}
+.weekly{
+    width: 100%;
+    position: absolute;
+    top: 20%;
+    justify-content: center;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 45%;
+    background: #88C16C;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 50px;
+    border: 2px solid #DFFBD1;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px #1B4904;
+}
+
+.box h1{
+    font-size: 40px;
+    text-shadow: 1px 1px #DFFBD1;
+    margin-bottom: 10px;
+    color: #1B4904;
+    padding: 10px;
+    letter-spacing: 1px;
+}
+
+#feedback, #message{
+    padding: 20px;
+    font-size: 30px;
+    background: #DFFBD1;
+    color: #c2430cff;
+}
+.charts{
+    margin-top: 100px;
+    position: relative;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    gap: 200px;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;;
+}
+.hide{
+    display: none;
+}
+#showCharts:hover{
+    color: #1B4904;
+    background-color: #DFFBD1;
+}

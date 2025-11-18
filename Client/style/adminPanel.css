@@ -1,0 +1,57 @@
+.hide{
+    display: none;
+}
+#myChart{
+    height:400px !important;
+}
+
+#users-list .username{
+    font-size: 25px;
+}
+#users-list a{
+    color: #DFFBD1;
+}
+.admin-container{
+    position: absolute;
+    top: 10%;
+}
+.chart-Container{
+    justify-content: center;
+    position: relative;
+    padding-left: 25%;
+}
+
+.user-info-container {
+  padding: 10px 12px;
+  background-color: #DFFBD1;
+  border-left: 4px solid #1B4904;
+  border-radius: 6px;
+  font-size: 0.9em;
+  color: #333;
+  display: none;
+  z-index: 1;
+  height: 125px;
+  float: left;
+  transform: translateX(100%);
+  position: absolute;
+  right: 0;
+}
+
+.user-info-container p {
+  margin: 4px 0;
+}
+span{
+    font-size: 20px !important;
+}
+span .username{
+    font-size: 25px !important;
+
+}
+.icons{
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    float: left;
+    position: absolute;
+    right: 0;
+}

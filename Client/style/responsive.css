@@ -1,0 +1,71 @@
+
+@media (max-width: 800px) { 
+    body{
+        background: #DFFBD1;
+    }
+    h2{
+        font-size: 40px;
+    }
+    input, textarea{
+        width: 80%;
+    }
+    textarea{
+        height: 80%;
+    }
+    .entry-container, .container, .add_new{
+        width: 90%;
+         max-width: 100%;
+    }
+    .form{
+        width: 100%;
+        justify-items: center;
+    }
+    .form h3, .add_new_container h3{
+        text-align: center !important;
+        font-size: 25px !important;
+    }
+    #td1{
+        font-size: 25px;
+        width: 30%;
+    }
+    .entry-box, .add_new{
+        flex: 1 1 100%;
+    }
+    .header img{
+        display: none;
+    }
+    button, #submit, #add{
+       bottom: -20%; 
+       text-align: center;
+    }
+    .habit-list, .users-list{
+        width: 100% !important;
+        margin-top: 0;
+    } 
+    .add_new_container{
+        position: static !important;
+       transform: translateY(50%);
+    }
+
+    .add_new{
+        flex-direction: column;
+        align-items: center;
+        background-color: #DFFBD1 !important;
+    }
+    .add_new input, #add_new{
+        width: 50% !important;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+    #show_habits_btn{
+        transform: translateY(100%);
+    }
+    body{
+        display: block;
+    }
+    .charts{
+        grid-template-columns: repeat(1, minmax(300px, 1fr)) !important;
+
+    }
+  
+}

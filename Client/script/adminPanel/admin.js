@@ -25,8 +25,10 @@ function displayUsers(users){
             <span class="username">${user.username}</span>
             <span>${user.email}</span>
             <div id="info-${user.id}" class="user-info-container"></div>
-            <a href="" class="user-info" data-id="${user.id}" data-email="${user.email}"><i class="fa-solid fa-circle-info"></i></a>
-            <a href="" class="delete-user" data-id="${user.id}"><i class="fa-solid fa-trash"></i></a>
+            <div class="icons">
+                <a href="" class="user-info" data-id="${user.id}" data-email="${user.email}"><i class="fa-solid fa-circle-info"></i></a>
+                <a href="" class="delete-user" data-id="${user.id}"><i class="fa-solid fa-trash"></i></a>
+            </div>
       `;
       usersList.appendChild(current);
     });

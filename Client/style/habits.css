@@ -1,0 +1,42 @@
+#add_new{
+    color: #1B4904;
+    background-color: #88C16C;
+    border: 2px solid  #1B4904 ;
+    border-radius: 30px;
+    font-size: 25px;
+    padding: 15px;
+}
+#add_new:hover{
+    color:  #88C16C;
+    background-color: #1B4904;
+
+}
+.add_new_container{
+    position: absolute;
+    top: 20%;
+}
+.add_new_container h3{
+    font-size: 35px;
+}
+.add_new{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    height: 70px;
+    width: 800px;
+    border-radius: 10px;
+    background-color: #f0fff0;
+}
+#show_habits{
+    padding: 10px;
+    position: relative;
+    margin-top: 50px; 
+
+}
+#habit_name{
+    width: 40%;
+}
+.habit-list-container, .useres-list-container{
+    margin-top: 400px;
+}
