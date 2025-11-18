@@ -1,7 +1,13 @@
-function displayHabits(habits){
+function displayHabits(habits){      
     const habitsList = document.getElementById("habits-list");
+    habitsList.innerHTML = "";
+    if(habits.length === 0){
+      habitsList.innerHTML = "No habits to show";
+      return;
+    }
     const title = document.createElement("h2");
     title.innerHTML="Your Habit List";
+    habitsList.appendChild(title);
     habits.forEach(habit => {
       const newHabit = document.createElement("div");
       newHabit.className = "habit-list";

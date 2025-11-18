@@ -5,10 +5,10 @@ window.onload = function() {
 };
 async function getWeeklySummary(){
      try{
-        const res = await axios.post(`${BASE_URL}/api/weeklySummary.php`,{
+        const res = await axios.post(`${BASE_URL}/api/test.php`,{
             'email': localStorage.getItem('email')
         })
-        const response = res;
+        const response = res.data.data;
         console.log(response);
         message(response.message);
         advices(response.advices);
@@ -32,7 +32,7 @@ function advices(adv){
     advices.innerHTML = advs;
 }
 const btn = document.getElementById("showCharts");
-dlt.addEventListener("click", function(e){
+btn.addEventListener("click", function(e){
     e.preventDefault();
     document.getElementById("weekly").classList.add("hide");
     displayCharts();

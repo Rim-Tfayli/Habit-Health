@@ -24,8 +24,8 @@ function checkDeleteBtn(){
     document.querySelectorAll(".delete-habit").forEach(dlt => {
         dlt.addEventListener("click", function(e){
         e.preventDefault();
-        const habitId = dlt.dataset.id;;
-        deleteHabit(habitId);
+        const habitId = dlt.dataset.id;
+        deleteHabit(habitId);      
     });
 });
 }
@@ -34,16 +34,19 @@ function checkDeleteBtn(){
 function checkEditBtn(habitsList){
     document.querySelectorAll(".edit-habit").forEach(edit => {
         edit.addEventListener("click", function(e){
-        e.preventDefault();
-        const habitId = edit.dataset.id;;
-        const input = document.getElementById(habitId);
-        input.removeAttribute("readonly");
-        input.classList.add("input-edit");
-        const submit = document.createElement("button");
-        submit.innerHTML = "Save";
-        submit.className = "submit";
-        habitsList.appendChild(submit);
-        checkSubmitBtn(submit);
+            e.preventDefault();
+            const habitId = edit.dataset.id;;
+            const input = document.getElementById(habitId);
+            input.removeAttribute("readonly");
+            input.classList.add("input-edit");
+            if(!habitsList.querySelector(".submit")){
+                const submit = document.createElement("button");
+                submit.innerHTML = "Save";
+                submit.className = "submit";
+                habitsList.appendChild(submit);
+                checkSubmitBtn(submit);
+
+            }
     });
 });
 }
@@ -59,7 +62,7 @@ function checkSubmitBtn(submit){
                 goal: new_habit.value
             });
         })
-        //console.log(edited_habits); 
-        updateHabits(edited_habits);      
+        console.log(edited_habits); 
+        updateHabits(edited_habits); 
     });
 }

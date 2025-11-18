@@ -32,7 +32,6 @@ function displayUsers(users){
     });
     checkInfoBtn();
     checkDeleteBtn();
-    checkEditBtn(usersList);
 }
 
 async function checkInfoBtn() {
@@ -75,7 +74,8 @@ function checkDeleteBtn(){
     document.querySelectorAll(".delete-user").forEach(dlt => {
         dlt.addEventListener("click", function(e){
             e.preventDefault();
-            const userId = btn.dataset.id
+            const userId = dlt.dataset.id
+            console.log(userId);
             deleteUser(userId);
     });
   });

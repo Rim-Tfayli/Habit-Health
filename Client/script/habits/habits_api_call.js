@@ -4,6 +4,7 @@ async function addNewHabit(new_habit){
         const added = await axios.post(`${BASE_URL}/habit/insert`,new_habit);
         if(added.status===200){
             console.log("new habit added");
+            getHabits();
         }
     }
     catch(error){
@@ -47,12 +48,12 @@ async function updateHabits(edited_habits){
 
 async function deleteHabit(habitId){
     try{
-        const habits = axios.get(`${BASE_URL}/habit/delete`,{
+        console.log(habitId);
+        const habits = axios.delete(`${BASE_URL}/habit/delete`,{
             params: { id: habitId }
-        })
-        if(habits.status===200){
-            window.location.reload();
-        }
+        });
+        console.log("testt");
+        getHabits();
     }
     catch(error){
         console.error(error);

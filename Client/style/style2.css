@@ -2,7 +2,7 @@ h2{
     text-align: center;
     top: 0;
     color: #1B4904;
-    font-size: 96px;
+    font-size: 50px;
     text-shadow: 1px 1px;
 }
 
@@ -186,9 +186,13 @@ button:hover, .submit:hover{
     background: #DFFBD1;
     color: #c2430cff;
 }
-.daily, .weekly{
+.daily{
+    position: relative;
     margin-top: 100px;
     justify-items: center;
+}
+.weekly button{
+    position:relative;
 }
 .weekly li{
     font-size: 20px;

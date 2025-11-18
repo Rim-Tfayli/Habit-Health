@@ -18,7 +18,7 @@ submit.addEventListener("click", function (e) {
             if(walk)
                 newEntry += `I walked for ${walk} min.  `;
             if(water)
-                newEntry += `I drunk ${water} L.  `;
+                newEntry += `I drank ${water} L.  `;
             if(coffee)
                 newEntry += `I had ${coffee} cups of coffee.  `;
             if(food)
