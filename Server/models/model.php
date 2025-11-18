@@ -108,7 +108,7 @@ abstract class Model{
 
     //this function will be used for summaries
     public static function findByDate(mysqli $connection, string $start, string $end, string $column = "", $value = null){
-        if($value !== null){
+        if($value !== null && !empty($column)){
             $sql = sprintf(
                 "SELECT * FROM %s WHERE %s = ? AND created_at BETWEEN ? AND ? ORDER BY created_at",
                 static::$table,
