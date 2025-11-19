@@ -3,25 +3,30 @@
     require_once("../services/ResponseService.php");
     require_once("../services/EntryService.php");
     require_once("../services/AiResponseService.php");
+    require_once("../services/UserService.php");
+    require_once("../models/User.php");
+    require_once("../models/aiResponse.php");
+
+
     include_once("prompts.php");
 
 
     //will be sent from axios..
     $data = json_decode(file_get_contents("php://input"), true);
-    if (!isset($data['user_id']) || !isset($data['user_input'])){
+    if (!isset($data['email']) || !isset($data['userInput'])){
         echo ResponseService::response(400, "Some info are missing");
         exit;
     }
-    /*$entry_id = $data["entry_id"];
-    $user_id = $data['user_id'];*/
-    $user_input = $data['user_input'];
+    $user_email = $data['email']; 
+    $user = UserService::findUserByEmail($connection, $user_email);
 
-   /* $newEntry = EntryService::save($connection, [
-        "id" => $entry_id,
-        "user_id" => $user_id,
-        "entry_text" => $user_input,
-    ]);*/
-    $apiKey = "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";
+    $user_id = $user['id'];   
+    echo $user_id;
+
+    $user_input = $data['userInput'];
+
+    
+    $apiKey = "";
 
     $prompt = "$prompt1 \"$user_input\"";
     
@@ -57,9 +62,9 @@
         return;
     }
     $aiResponse = AiResponseService::save($connection, [
-        "entry_id" => $entry_id,
+        "user_id" => $user_id,
         "steps" => $resultData['steps'],
-        "minutes" => $resultData['minutes'],
+        "water" => $resultData['water'],
         "caffeine" => $resultData['caffeine'],
         "sleep_time"=> $resultData['sleep_time'],
         "calories" => $resultData['calories'],
@@ -69,7 +74,6 @@
     if($aiResponse){
         echo ResponseService::response(200, $aiResponse);
     }
-
 
 
 ?>

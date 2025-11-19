@@ -21,8 +21,10 @@ class AiResponse extends Model{
         $this->caffeine = (int)$data["caffeine"];
         $this->sleep_time = (int)$data["sleep_time"];
         $this->calories = (int)$data["calories"];
-        $this->created_at = (int)$data["created_at"] ?? null;
+        $this->created_at = $data["created_at"] ?? null;
     }
+
+    
     public function toArray(){
         return [
             "id" => $this->id,

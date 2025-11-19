@@ -21,7 +21,7 @@ $prompt2 = <<<EOT
                 And when someone tell you what he ate, you calculate calories
                 (I send you my habits and daily entries)
                 Based on that, generate a JSON response only.
-                -Parse the entries into structured data: steps, water (liters), sleep (hours), calories.
+                -Parse the entries into structured data as summary by doing your calculation(sum) : steps, water (liters), sleep (hours), calories.
                 -Estimate steps if only walking minutes are provided (100 steps ≈ 1 minute).
                 -Compare the parsed data with the habits' goals.
                 -feedback should only be one sentence
