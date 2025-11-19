@@ -56,6 +56,20 @@ class User extends Model {
         return $this->gender;
     }
 
+    public function getTotalEntries(){
+        return $this->total_entries;
+    }
+    public function setTotalEntries(string $total_entries){
+        $this->total_entries = $total_entries;
+    }
+
+    public function getLastEntry(){
+        return $this->last_entry;
+    }
+    public function setLastEntry(string $last_entry){
+        $this->last_entry = $last_entry;
+    }
+    
     public function setPassword(string $password){
         $this->password = password_hash($password, PASSWORD_BCRYPT);
     }

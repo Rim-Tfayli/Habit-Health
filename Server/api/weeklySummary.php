@@ -28,11 +28,9 @@
     $entries = Entry::findByDate($connection, $startdate, $enddate, "user_id", $user['id']);
 
     $entriesJson = json_encode($entries, JSON_PRETTY_PRINT);  
-    $apiKey = "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";
+    $apiKey = "";
 
     $prompt = " $prompt3  \n\"$entriesJson\"";
-
-    //echo  $prompt;    
 
     $msg = [
         'model' => 'gpt-3.5-turbo',
