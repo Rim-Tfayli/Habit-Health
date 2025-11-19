@@ -29,10 +29,11 @@ btn.addEventListener("click", async function (e) {
 });
 async function createNewUser(data){
     try{
-        const response = await axios.post(`${BASE_URL}/user/insert`, data[0]);
-        console.log(response);
+        console.log(data);
+
+        const response = await axios.post(`${BASE_URL}/user/insert`, data);
         if(response.status===200){
-           // window.location.href="./habits.html";
+            window.location.href="./habits.html";
             return response.data;
         }
     } 

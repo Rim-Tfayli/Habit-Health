@@ -13,20 +13,25 @@ submit.addEventListener("click", function (e) {
 
         const entry = document.getElementById('entry').value;
         
+        //if the user didn't enter free text, than wel will the other option of adding an entry 
         let newEntry = entry;
-        if(newEntry.trim()===''){
-            if(walk)
-                newEntry += `I walked for ${walk} min.  `;
-            if(water)
-                newEntry += `I drank ${water} L.  `;
-            if(coffee)
-                newEntry += `I had ${coffee} cups of coffee.  `;
-            if(food)
-                newEntry += `I ate ${food}. `;
-            if(sleep)
-                newEntry += `I slept at ${sleep}. `;
+    
+        if(walk)
+            newEntry += `I walked for ${walk} min.  `;
+        if(water)
+            newEntry += `I drank ${water} L.  `;
+        if(coffee)
+            newEntry += `I had ${coffee} cups of coffee.  `;
+        if(food)
+            newEntry += `I ate ${food}. `;
+        if(sleep)
+            newEntry += `I slept at ${sleep}. `;
+        
+        if(newEntry.trim()==='')
+        {
+            alert("Please add an entry :) ");
+            return;
         }
-
         const  data = {
             email: localStorage.getItem('email'),
             userInput: newEntry
@@ -36,10 +41,10 @@ submit.addEventListener("click", function (e) {
 async function addNewEntry(data){
     try{
         const response = await axios.post(`${BASE_URL}/entry/insert`, data);
-        if(response){
-            //////window.location.href="./daily.html";
-            callAiResponse(data);
-            console.log(data);
+        if(response.status){
+            await callAiResponse(data);
+            window.location.href="./habits.html";
+
             return response.data;
         }
     }
@@ -51,7 +56,6 @@ async function addNewEntry(data){
 async function callAiResponse(data){
     try{
         const response = await axios.post(`${BASE_URL}/api/ai.php`, data);
-        console.log(response.data);
     }
     catch(error){
         console.error(error);

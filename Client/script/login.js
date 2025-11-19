@@ -31,9 +31,7 @@ async function login(email, password){
             email: email,
             password: password
         });
-        //console.log(response);
         if(response.data.status===200){
-            //console.log(response.data);
             const user = response.data.data;
             localStorage.setItem('email', email);
             localStorage.setItem('user_type', user.user_type_id);
