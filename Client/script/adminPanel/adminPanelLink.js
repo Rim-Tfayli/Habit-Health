@@ -10,7 +10,7 @@ function checkUserType(){
 function navLinkToAdminPanel(navbar){
     const adminPanelList = document.createElement("li");
     const adminPanelLink = document.createElement("a");
-    adminPanelLink.textContent = "adminPanel";
+    adminPanelLink.textContent = "Admin Panel";
     adminPanelLink.href = "./admin.html";
     navbar.appendChild(adminPanelList);
     navbar.appendChild(adminPanelLink);

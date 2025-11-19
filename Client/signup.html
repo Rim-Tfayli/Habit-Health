@@ -12,7 +12,6 @@
             <img src="./images/logo.png">
             <div class="nav">               
                 <ul>
-                    <li><a href="./home.html">Home</a></li>
                     <li><a href="./login.html">Log in</a></li>
                     <li><a class="active" href="./signup.html">Sign up</a></li>
                 </ul>            
@@ -21,16 +20,21 @@
         <div class="form">
             <h1>SignUp</h1>
             <form id="form">
-                <input type="text" id="username" class="input" placeholder="Enter Your Username" required>
+                Enter your username:
+                <input type="text" id="username" class="input" placeholder="username" required>
                 <div id="usernam-error" class="error"></div>
-                <input type="text" id="email" class="input" placeholder="Enter An Email" required>
+                Enter an email:
+                <input type="text" id="email" class="input" placeholder="email" required>
                 <div id="email-error" class="error"></div>
-                <input type="password" id="password" class="input" placeholder="Enter A Password" required>
+                Enter your password:
+                <input type="password" id="password" class="input" placeholder="password" required>
                 <div id="password-error" class="error"></div>
-                <input type="password" id="confirm" class="input" placeholder="Confirm Your Password" required>
+                Confirm your email:
+                <input type="password" id="confirm" class="input" placeholder="password" required>
                 <div id="confirm-error" class="error"></div>
+                Select your gender:
                 <select id="gender" class="input" required>
-                    <option value="" disabled selected>Select Your Gender</option>
+                    <option value="" disabled selected>Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                 </select>

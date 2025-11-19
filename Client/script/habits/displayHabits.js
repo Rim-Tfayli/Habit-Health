@@ -1,6 +1,7 @@
 window.onload = function() {
     checkAuth();
     checkUserType();
+    getHabits();
 };
 function displayHabits(habits){      
     const habitsList = document.getElementById("habits-list");

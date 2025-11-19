@@ -20,7 +20,7 @@
     margin: 10px;
     margin-bottom: 50px;
     border: 2px solid #DFFBD1;
-    border-radius: 8px;
+    border-radius: 2px;
     box-shadow: 0 4px 15px #1B4904;
 }
 
@@ -49,9 +49,7 @@
     justify-content: center;
     align-items: center;;
 }
-.hide{
-    display: none;
-}
+
 #showCharts:hover{
     color: #1B4904;
     background-color: #DFFBD1;
@@ -62,7 +60,7 @@
     background-color: #1B4904;
     color: white;
     border: none;
-    border-radius: 30px;
-    font-size: 25px;
+    border-radius: 10px;
+    font-size: 18px;
     padding: 10px;
 }
