@@ -4,7 +4,7 @@ window.onload = function() {
 };
 function checkAuthorization(){
     const user_type = localStorage.getItem('user_type');
-    if(!user_type || user_type===2){
+    if(!user_type || user_type == 2){
         redirectToHome();
     }
     else{
