@@ -7,8 +7,7 @@ async function displayCharts() {
         })
         if(resp.data){
             const data = resp.data
-            console.log(data.data);
-            //prepareData(data.data);
+            prepareData(data.data);
         }
    }
     catch(error){

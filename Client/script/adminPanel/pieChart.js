@@ -3,11 +3,9 @@ async function getTopHabits(){
     try{
         const topHabits = await axios.get(`${BASE_URL}/habit/topHabits`);
         prepareData(topHabits.data.data);
-        //console.log(topHabits.data);
     }
     catch(error){
         console.error(error);
-        return {status: 500, data: 'connection failed'};
     }
 }
 function prepareData(topHabits){

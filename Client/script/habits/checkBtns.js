@@ -19,38 +19,35 @@ show_habits.addEventListener("click", function(e){
 });
 
 
-//to check delete btns f each habit
+//to check delete btns pf each habit
 function checkDeleteBtn(){
-    document.querySelectorAll(".delete-habit").forEach(dlt => {
-        dlt.addEventListener("click", function(e){
+    addClickListeners(".delete-habit", function(e) {
         e.preventDefault();
-        const habitId = dlt.dataset.id;
+        const habitId = this.dataset.id;
         deleteHabit(habitId);      
     });
-});
-}
+};
 
-
+//adding even listener to each edit btn
+//so when the user click on an edit icon (btn), we can get his or her id (= dataset.id)
 function checkEditBtn(habitsList){
-    document.querySelectorAll(".edit-habit").forEach(edit => {
-        edit.addEventListener("click", function(e){
-            e.preventDefault();
-            const habitId = edit.dataset.id;;
-            const input = document.getElementById(habitId);
-            input.removeAttribute("readonly");
-            input.classList.add("input-edit");
-            if(!habitsList.querySelector(".submit")){
-                const submit = document.createElement("button");
-                submit.innerHTML = "Save";
-                submit.className = "submit";
-                habitsList.appendChild(submit);
-                checkSubmitBtn(submit);
-
-            }
+    addClickListeners(".edit-habit", function(e) {
+        e.preventDefault();
+        const habitId = this.dataset.id;;
+        const input = document.getElementById(habitId);
+        input.removeAttribute("readonly");
+        input.classList.add("input-edit");
+        if(!habitsList.querySelector(".submit")){
+            const submit = document.createElement("button");
+            submit.innerHTML = "Save";
+            submit.className = "submit";
+            habitsList.appendChild(submit);
+            checkSubmitBtn(submit);
+        }
     });
-});
 }
 //function to prepare every edited habit to be sent to the server
+//since we added (input-edit) class to every edited habit, that's how we will access only the edited ones
 function checkSubmitBtn(submit){
     submit.addEventListener("click", function(e){
         e.preventDefault();
@@ -62,7 +59,7 @@ function checkSubmitBtn(submit){
                 goal: new_habit.value
             });
         })
-        console.log(edited_habits); 
         updateHabits(edited_habits); 
+        getHabits();
     });
 }

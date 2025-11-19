@@ -4,7 +4,7 @@ window.onload = function() {
 };
 async function getWeeklySummary(){
      try{
-        const res = await axios.post(`${BASE_URL}/api/test.php`,{
+        const res = await axios.post(`${BASE_URL}/api/weeklySummary.php`,{
             'email': localStorage.getItem('email')
         })
         const response = res.data.data;
