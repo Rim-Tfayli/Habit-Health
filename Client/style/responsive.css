@@ -65,7 +65,7 @@
     }
     .charts{
         grid-template-columns: repeat(1, minmax(300px, 1fr)) !important;
-
+        gap: 100px !important;
     }
   
 }

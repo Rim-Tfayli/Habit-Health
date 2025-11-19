@@ -1,3 +1,4 @@
+
 .weekly li{
     font-size: 20px;
     padding: 5px;
@@ -39,8 +40,7 @@
     color: #c2430cff;
 }
 .charts{
-    margin-top: 100px;
-    position: relative;
+    margin-top: 600px;
     justify-content: center;
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr));
@@ -55,4 +55,14 @@
 #showCharts:hover{
     color: #1B4904;
     background-color: #DFFBD1;
+}
+#showCharts{
+    position: relative;  
+    bottom: 20px;
+    background-color: #1B4904;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 25px;
+    padding: 10px;
 }

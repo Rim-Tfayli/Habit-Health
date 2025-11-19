@@ -7,11 +7,12 @@ h2{
     margin-bottom: 10px;
 }
 
-.entry-container{
+.entry-container, .container{
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    width: 900px;
+    width: 90%;
+    
     justify-content: center;
 }
 
