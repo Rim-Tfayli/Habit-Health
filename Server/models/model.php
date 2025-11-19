@@ -86,11 +86,15 @@ abstract class Model{
         $query->bind_param($types, ...array_values($properties));
         return  $query->execute();
     }
-    public function update(mysqli $connection,  string $primary_key, array $properties){      
+    public function update(mysqli $connection,  string $primary_key, array $properties){ 
+        //if the primary key is not id for example if i want to update a certain user based on his email
+        //unset both the email and id bcz they are notgoing to be updated     
         $primary_value = $properties[$primary_key];
         unset($properties[$primary_key]);
         if($primary_key!=="id")
             unset($properties["id"]);
+        unset($properties["created_at"]); 
+        //to prevent updating the created_at date when we update some user info
         $types = str_repeat('s', count($properties)) . (is_int($primary_value) ? 'i' : 's');
         $new = implode(' = ?, ', array_keys($properties)) . ' = ?';
         //we are putting between the keys " = ? "
@@ -108,7 +112,7 @@ abstract class Model{
 
     //this function will be used for summaries
     public static function findByDate(mysqli $connection, string $start, string $end, string $column = "", $value = null){
-        if($value !== null){
+        if($value !== null && !empty($column)){
             $sql = sprintf(
                 "SELECT * FROM %s WHERE %s = ? AND created_at BETWEEN ? AND ? ORDER BY created_at",
                 static::$table,

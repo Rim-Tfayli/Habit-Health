@@ -6,7 +6,6 @@ async function displayCharts() {
             email: localStorage.getItem('email')
         })
         if(resp.data){
-            console.log(localStorage.getItem('email'));
             const data = resp.data
             prepareData(data.data);
         }
