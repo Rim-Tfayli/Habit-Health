@@ -34,7 +34,7 @@ async function login(email, password){
         if(response.data.status===200){
             const user = response.data.data;
             localStorage.setItem('email', email);
-            localStorage.setItem('user_type', user.user_type_id);
+            localStorage.setItem('user_type', user.user_type);
             window.location.href="./habits.html";
             return response.data;
         }

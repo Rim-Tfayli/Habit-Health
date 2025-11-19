@@ -1,4 +1,5 @@
 window.onload = function() {
+    checkUserType();
     checkAuth();
     getDailySummary();
 };
@@ -35,7 +36,7 @@ function displayFeedback(feedback){
 function displaySummary(summary){
     const div = document.getElementById("summary");
     div.innerHTML = `
-        <h1>Today's progress<i class="fa-solid fa-circle-check"></i></h1>
+        <h1>Today's progress</h1>
         <p>Steps <i class="fa-solid fa-person-walking"></i> <span>${summary.steps | 0}</span </p>
         <p>Water <i class="fa-solid fa-whiskey-glass"></i> <span>${summary.water_liters | 0} L</span></p>
         <p>Sleep <i class="fa-solid fa-bed"></i> <span>${summary.sleep_hours | 0} hrs </span></p>
@@ -45,7 +46,7 @@ function displaySummary(summary){
 function displayGaps(gaps){
     const div = document.getElementById("gaps");
     div.innerHTML = `
-        <h1>You still have<i class="fa-solid fa-hourglass"></i></h1>
+        <h1>You still have</h1>
         <p>Steps <i class="fa-solid fa-person-walking"> <span>${gaps.steps_gap | 0}</i></span </p>
         <p>Water <i class="fa-solid fa-whiskey-glass"></i> <span>${gaps.water_gap_liters | 0} L</span></p>
         <p>Sleep <i class="fa-solid fa-bed"></i> <span>${gaps.sleep_gap_hours | 0} hrs</span></p>

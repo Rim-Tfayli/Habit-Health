@@ -25,7 +25,6 @@
   padding: 10px 12px;
   background-color: #DFFBD1;
   border-left: 4px solid #1B4904;
-  border-radius: 6px;
   font-size: 0.9em;
   color: #333;
   display: none;
@@ -49,7 +48,6 @@ span .username{
 }
 .icons{
     padding: 10px 12px;
-    border-radius: 6px;
     font-size: 0.9em;
     float: left;
     position: absolute;

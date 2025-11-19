@@ -12,13 +12,6 @@ add_new_btn.addEventListener("click", function(e){
         addNewHabit(new_habit);  
 });
 
-const show_habits = document.getElementById("show_habits");
-show_habits.addEventListener("click", function(e){
-        e.preventDefault();
-        getHabits();
-});
-
-
 //to check delete btns pf each habit
 function checkDeleteBtn(){
     addClickListeners(".delete-habit", function(e) {

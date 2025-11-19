@@ -1,6 +1,6 @@
 window.onload = function() {
     checkAuth();
-    console.log("hiiiiiiiiiiiiiiiiii")
+    checkUserType();
 };
 const submit = document.getElementById("submit-entry");
 submit.addEventListener("click", function (e) {

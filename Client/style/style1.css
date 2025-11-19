@@ -1,25 +1,30 @@
+
 .form{
     justify-content: center;
     border: 2px solid rgb(186, 186, 186);
-    border-radius: 10px;
+    border-radius: 2px;
     background: #88C16C;
     box-shadow:  2px 4px#1B4904;
     width: 400px;
-    min-height: 450px;
-    padding: 30px;
+    min-height: 400px;
+    padding: 10px 30px;
     margin-top:8% ;
 }
+#form{
+    font-size: 12px;
+
+}
 .form h1{
-    font-size: clamp(35px, 5vw, 60px);
+    font-size: clamp(20px, 3vw, 40px);
     text-align: center;
     font-weight: lighter;
     margin: 20px;
 }
 .input, .button{
     width: 100%;
-    min-height: 50px;
+    min-height: 45px;
     border: 2px solid  #DFFBD1;
-    border-radius: 30px;
+    border-radius: 10px;
     padding-left: 30px;
     margin: 5px;
     background-color: #DFFBD1;
@@ -27,13 +32,16 @@
 .button{
     padding: 0 ;
     font-size: 20px;
+    background-color: #1B4904;
+    color: #DFFBD1;
+    border: none;
 }
 .input:hover, .input:focus{
     background-color:rgba(223, 221, 221, 1);
 }
 .form p{
     text-align: center;
-    font-size: clamp(10px, 5vw, 17px);
+    font-size: clamp(10px, 2vw, 15px);
     margin-top: 10px;
 }
 .form a{
@@ -57,8 +65,10 @@
    
 }
 .button:hover{
-   color: #DFFBD1;
-    background-color: #1B4904;
+   color: #1B4904;
+   background-color: #DFFBD1;
+    border: 2px solid  #1B4904;
+
 }
 @media (max-width: 800px) { 
     .form{

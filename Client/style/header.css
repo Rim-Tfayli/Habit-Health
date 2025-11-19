@@ -21,7 +21,9 @@ body{
     justify-content: space-between; 
 }
 .header img {
-  height: 60px;
+  margin-top:10px;
+  margin-left:10px;
+  height: 40px;
   width: auto;
 }
 .header ul{
